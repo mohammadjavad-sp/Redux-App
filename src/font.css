@@ -1,0 +1,41 @@
+
+
+@font-face{
+    font-family: "pinar-bold";
+    src: url("./assets/fonts/Pinar-SemiBold.ttf");
+}
+
+@font-face{
+    font-family: "pinar-extraBold";
+    src: url("./assets/fonts/Pinar-ExtraBold.ttf");
+}
+
+@font-face{
+    font-family: "yekan-thin";
+    src: url("./assets/fonts/IRANYekanWebThin.woff");
+}
+
+@font-face{
+    font-family: "yekan-light";
+    src: url("./assets/fonts/IRANYekanWebLight.woff");
+}
+
+@font-face{
+    font-family: "yekan-medium";
+    src: url("./assets/fonts/IRANYekanWebMedium.woff");
+}
+
+@font-face{
+    font-family: "yekan-bold";
+    src: url("./assets/fonts/IRANYekanWebBold.woff");
+}
+
+@font-face{
+    font-family: "yekan-extraBold";
+    src: url("./assets/fonts/IRANYekanExtraBold.ttf");
+}
+
+@font-face{
+    font-family: "yekan-num";
+    src: url("./assets/fonts/iranyekanwebmediumfanum.woff");
+}
