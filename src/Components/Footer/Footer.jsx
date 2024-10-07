@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <>
       <footer
-        className="w-full mt-10 pb-10 bg-white"
+        className="w-full pb-10 bg-white"
         style={{ boxShadow: "1px 1px 5px gray" }}
       >
         <div className="w-[88%] mx-auto flex justify-between items-center py-10 border-b-2 border-b-[#BA08FA]">

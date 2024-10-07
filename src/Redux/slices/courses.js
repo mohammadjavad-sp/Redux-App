@@ -16,7 +16,7 @@ export const coursesSlice = createSlice({
   initialState: { allCourses: [] },
   extraReducers: (builder) => {
     builder.addCase(fetchCourses.fulfilled, (state, action) => {
-      state.allCourses = action.payload.courses;
+      state.allCourses = action.payload;   
     });
   },
 });

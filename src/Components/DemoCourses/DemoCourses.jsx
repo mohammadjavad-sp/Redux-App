@@ -33,10 +33,12 @@ const DemoCourses = () => {
   ];
   return (
     <>
-      <div className="flex w-9/12 mx-auto justify-between mt-10">
+      <div className="bg-[#F4F5F7] py-10">
+      <div className="flex w-9/12 mx-auto justify-between ">
         {DemoCourses.map((item) => (
           <DemoCourse {...item} key={item.id} />
         ))}
+      </div>
       </div>
     </>
   );

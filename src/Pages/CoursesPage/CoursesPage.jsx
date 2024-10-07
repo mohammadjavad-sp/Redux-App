@@ -19,7 +19,8 @@ const CoursesPage = () => {
 
   return (
     <>
-      <div className="container flex justify-between mt-7 items-center">
+      <section className="bg-[#F4F5F7] pt-7">
+      <div className="container flex justify-between items-center">
         <div className="flex items-center gap-1">
           <FaSquare color="#FBBF24" size={30} />
           <h1 className="text-[30px] font-yekanEB text-rang1">دوره های ما</h1>
@@ -100,6 +101,7 @@ const CoursesPage = () => {
             </Button>
           )}
         </div>
+      </section>
       </section>
 
 

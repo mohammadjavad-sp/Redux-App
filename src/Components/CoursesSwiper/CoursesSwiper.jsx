@@ -15,7 +15,8 @@ const CoursesSwiper = () => {
   }, []);
   return (
     <>
-      <section className="flex items-center w-[88%] mx-auto my-20">
+      <section className="bg-[#F4F5F7] py-20">
+      <div className="flex items-center w-[88%] mx-auto">
         <div className="flex flex-col items-start gap-4 w-[25%]">
           <img src={pic} className="size-32" />
           <h2 className="text-[30px] text-rang1 font-pinarEB">
@@ -36,6 +37,7 @@ const CoursesSwiper = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
       </section>
     </>
   );

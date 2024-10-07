@@ -1,0 +1,20 @@
+.bote {
+  background: white url(../../assets/images/homePage/bote-pattern.png) no-repeat;
+  background-size: contain;
+}
+
+.swiper {
+  width: 600px;
+  height: 260px;
+}
+
+.swiperSlide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+

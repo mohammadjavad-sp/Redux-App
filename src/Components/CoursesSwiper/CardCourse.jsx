@@ -41,8 +41,10 @@ const CardCourse = ({ data, bgColor, lineClamp, text }) => {
           <PiStudent className="translate-y-[-2px]" />
           {data.studentCount}
         </div>
-        <h5 className={`text-md font-yekanEB tracking-tight text-rang1 dark:text-white hover:text-[#35AD12] cursor-pointer duration-300 flex-1 ${lineClamp}`}>
-          {data.courseName}
+        <h5
+          className={`text-md font-yekanEB tracking-tight text-rang1 dark:text-white hover:text-[#35AD12] cursor-pointer duration-300 flex-1 ${lineClamp}`}
+        >
+          <Link to={`/Redux-App/courses/${data.id}`}>{data.courseName}</Link>
         </h5>
         <p className="line-clamp-2 font-yekanM text-sm">{text}</p>
         <div className="flex gap-10">
@@ -59,7 +61,10 @@ const CardCourse = ({ data, bgColor, lineClamp, text }) => {
           <FaUser />
           {data.teacher}
         </p>
-        <Link className="flex items-center gap-1 text-blue-600 hover:text-blue-400 duration-200 text-sm font-yekanEB">
+        <Link
+          to={`/Redux-App/courses/${data.id}`}
+          className="flex items-center gap-1 text-blue-600 hover:text-blue-400 duration-200 text-sm font-yekanEB"
+        >
           مشاهده اطلاعات دوره <IoIosArrowRoundBack size={25} />
         </Link>
         <div className="flex items-center justify-between mt-6">

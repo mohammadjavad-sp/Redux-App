@@ -6,6 +6,7 @@ import quest2 from "../../assets/images/contact/quest2.svg";
 import { Button, Label, TextInput } from "flowbite-react";
 import Acordion from "../../Components/Accordion/Accordion";
 import styles from "./ContactPage.module.css";
+import Footer from "../../Components/Footer/Footer";
 const ContactPage = () => {
   return (
     <>
@@ -96,23 +97,37 @@ const ContactPage = () => {
         </div>
       </section>
 
-      <div
-        className={`${styles.khabarName} w-full pt-16 pb-10 flex flex-col items-center justify-center`}
-      >
-        <p className="text-[#FF9F07] font-yekanEB text-[20px]">
-          از پیشنهادات ویژه ما سریع تر با خبر شوید!
-        </p>
-        <p className="text-white text-[16px]">
-          پیشنهادات خاص و تخفیف های ما را زودتر از بقیه دریافت کنید.
-        </p>
-        <div className="flex rounded-full mt-10">
-          <input type="text" />
-          <input type="email" />
-          <Button color="failure" pill>
-            Failure
-          </Button>
+      <div className="pt-44 bg-white">
+        <div
+          className={`${styles.khabarName} w-full pt-16 pb-10 flex flex-col items-center justify-center`}
+        >
+          <p className="text-[#FF9F07] font-yekanEB text-[20px]">
+            از پیشنهادات ویژه ما سریع تر با خبر شوید!
+          </p>
+          <p className="text-white text-[16px]">
+            پیشنهادات خاص و تخفیف های ما را زودتر از بقیه دریافت کنید.
+          </p>
+          <div className="flex rounded-full mt-10 bg-slate-500/10 p-2">
+            <input
+              type="text"
+              placeholder="نام و نام خانوادگی"
+              className="bg-transparent border-0 text-white !ring-0"
+            />
+            <input
+              type="email"
+              placeholder="آدرس ایمیل"
+              className="bg-transparent border-0 text-white !ring-0"
+            />
+            <Button
+              color="failure"
+              className="w-[60px] h-[60px] rounded-full flex justify-center items-center"
+            >
+              ارسال
+            </Button>
+          </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
