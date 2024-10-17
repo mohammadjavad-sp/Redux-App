@@ -45,7 +45,7 @@ const Timer = () => {
         days--;
       }
 
-      const updatedTime = { days, hours, minutes, seconds };      
+      const updatedTime = { days, hours, minutes, seconds };
       localStorage.setItem("timeLeft", JSON.stringify(updatedTime));
       return updatedTime;
     });
@@ -53,16 +53,11 @@ const Timer = () => {
 
   return (
     <>
-      <div className="flex gap-14 mb-10">
+      <div className="flex xl:gap-14 lg:gap-5 md:gap-10 mb-10 flex-wrap w-full gap-2 justify-center mt-10 lg:mt-0">
         <div className="bg-[#DE2545] flex items-center justify-center text-white rounded-2xl size-[70px] shadow-lg shadow-[#DE2545] text-center">
-          {timeLeft.seconds}
+          {timeLeft.days}
           <br />
-          ثانیه
-        </div>
-        <div className="bg-[#DE2545] flex items-center justify-center text-white rounded-2xl size-[70px] shadow-lg shadow-[#DE2545] text-center">
-          {timeLeft.minutes}
-          <br />
-          دقیقه
+          روز
         </div>
         <div className="bg-[#DE2545] flex items-center justify-center text-white rounded-2xl size-[70px] shadow-lg shadow-[#DE2545] text-center">
           {timeLeft.hours}
@@ -70,9 +65,15 @@ const Timer = () => {
           ساعت
         </div>
         <div className="bg-[#DE2545] flex items-center justify-center text-white rounded-2xl size-[70px] shadow-lg shadow-[#DE2545] text-center">
-          {timeLeft.days}
+          {timeLeft.minutes}
           <br />
-          روز
+          دقیقه
+        </div>
+
+        <div className="bg-[#DE2545] flex items-center justify-center text-white rounded-2xl size-[70px] shadow-lg shadow-[#DE2545] text-center">
+          {timeLeft.seconds}
+          <br />
+          ثانیه
         </div>
       </div>
     </>

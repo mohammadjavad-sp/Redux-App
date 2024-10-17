@@ -33,8 +33,8 @@ const DemoCourses = () => {
   ];
   return (
     <>
-      <div className="bg-[#F4F5F7] py-10">
-      <div className="flex w-9/12 mx-auto justify-between ">
+      <div className="bg-[#F4F5F7] dark:bg-dark3 py-10">
+      <div className="flex lg:w-9/12 mx-auto lg:justify-between flex-wrap justify-center gap-7 lg:gap-0">
         {DemoCourses.map((item) => (
           <DemoCourse {...item} key={item.id} />
         ))}

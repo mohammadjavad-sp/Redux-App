@@ -3,11 +3,6 @@
   background-size: contain;
 }
 
-.swiper {
-  width: 600px;
-  height: 260px;
-}
-
 .swiperSlide {
   display: flex;
   align-items: center;

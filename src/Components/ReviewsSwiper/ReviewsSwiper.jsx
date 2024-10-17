@@ -21,20 +21,20 @@ const ReviewsSwiper = () => {
     },
     {
       id: 3,
-      name: "آیدا محمدی",
+      name: "آوا فتحعلی",
       pic: reviewPic3,
     },
   ];
   return (
     <>
-      <div className="w-full bg-[#F4F5F7] pb-20 text-center">
+      <div className="w-full bg-[#F4F5F7] dark:bg-dark3 text-center">
         <h2 className="text-[24px] text-[#2DA706] font-yekanEB">دانشجویان ما چه می گویند</h2>
-        <p className="text-[14px] text-slate-500 mb-10">صدای شما را می شنویم و تا آخرین قدم کنارتان هستیم</p>
+        <p className="text-[14px] text-slate-500 dark:text-slate-400 mb-10">صدای شما را می شنویم و تا آخرین قدم کنارتان هستیم</p>
         <Swiper
           effect={"cards"}
           grabCursor={true}
           modules={[EffectCards, Autoplay]}
-          className={`my-swiper ${styles.swiper}`}
+          className={`my-swiper lg:w-[600px] md:w-[500px] sm:w-[400px] w-[250px] h-[260px]`}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
@@ -43,12 +43,12 @@ const ReviewsSwiper = () => {
           {reviews.map((review) => (
             <SwiperSlide
               key={review.id}
-              className={` ${styles.bote} ${styles.swiperSlide} border-[1px] border-slate-200 relative shadow-xl`}
+              className={` ${styles.bote} ${styles.swiperSlide} border-[1px] border-slate-200 dark:border-0 dark:bg-dark2 relative shadow-xl`}
             >
               <div className="absolute top-0 left-0 bg-[#5FBB0B] rounded-tl-xl rounded-br-xl rounded-sm text-sm px-3 py-2 text-white">
                 {review.name}
               </div>
-              <div className="flex flex-col items-center justify-center gap-3 p-5">
+              <div className="flex flex-col items-center justify-center gap-3 sm:p-5">
                 <div className="p-1 border-dashed border-[#A29E9E] border-2 rounded-full">
                   <img src={review.pic} className="size-16 rounded-full" />
                 </div>
@@ -59,7 +59,7 @@ const ReviewsSwiper = () => {
                   <FaStar />
                   <FaStar />
                 </div>
-                <p className="text-[16px] text-slate-700 font-yekanL">
+                <p className="lg:text-[16px] md:text-[14px] text-[12px] px-5 text-justify text-slate-700 dark:text-slate-300 font-yekanL">
                   تا قبل از آشنایی با خدمات طراحی اپلیکیشن شما تجربه ناموفقی را
                   با دو شرکت مختلف تجربه کردم که منجر به شکست شد. اما بعد از
                   تحویل اپلیکیشن ساخته شده توسط شما کسب و کارم متحول شد.

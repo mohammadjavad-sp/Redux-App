@@ -17,6 +17,9 @@ export default {
       },
       colors: {
         rang1: "#2A2D53",
+        dark1: "#242A38",
+        dark2: "#2F3542",
+        dark3: "#111827",
       },
     },
     container: {

@@ -1,10 +1,13 @@
 import { Card } from "flowbite-react";
 import { Link } from "react-router-dom";
-import styles from "./CardCourse.module.css";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoIosArrowRoundBack, IoMdTime } from "react-icons/io";
 import { FaMicrophoneAlt, FaStar, FaUser } from "react-icons/fa";
 import { PiStudent } from "react-icons/pi";
+import styles from "./CardCourse2.module.css";
+import toman from "../../assets/images/coursePage/svgexport-36.svg";
+import whiteToman from "../../assets/images/coursePage/whiteToman.svg";
+import { useSelector } from "react-redux";
 const customTheme = {
   root: {
     base: "flex rounded-lg border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800 !justify-between",
@@ -24,12 +27,13 @@ const customTheme = {
   },
 };
 
-const CardCourse = ({ data, bgColor, lineClamp, text }) => {
+const CardCourse2 = ({ data, bgColor, lineClamp, text }) => {
+  const { darkMode } = useSelector((store) => store.globals);
   return (
     <>
       <Card
         theme={customTheme}
-        className={`lg:w-[332px] w-auto relative ${bgColor} rounded-xl p-0 shadow-none border-[#E2E3E5] dark:border-slate-900`}
+        className={`xl:w-[32%] md:w-[48%] w-auto relative ${bgColor} rounded-xl p-0 shadow-none border-[#E2E3E5] `}
         imgAlt="Meaningful alt text for an image that is not purely decorative"
         imgSrc={data.image}
       >
@@ -42,22 +46,24 @@ const CardCourse = ({ data, bgColor, lineClamp, text }) => {
           {data.studentCount}
         </div>
         <h5
-          className={`text-md font-yekanEB tracking-tight text-rang1 dark:text-white hover:text-[#35AD12] cursor-pointer duration-300 flex-1 ${lineClamp}`}
+          className={`text-md font-yekanEB tracking-tight text-rang1 dark:text-slate-100 hover:text-[#35AD12] cursor-pointer duration-300 flex-1 ${lineClamp}`}
         >
           <Link to={`/Redux-App/courses/${data.id}`}>{data.courseName}</Link>
         </h5>
-        <p className="line-clamp-2 font-yekanM text-sm">{text}</p>
+        <p className="line-clamp-2 font-yekanM text-sm dark:text-slate-200">
+          {text}
+        </p>
         <div className="flex gap-10">
-          <div className="flex items-center gap-1 dark:text-slate-300 font-yekanN text-sm">
+          <div className="flex items-center gap-1 font-yekanN text-sm dark:text-slate-200">
             <IoMdTime />
             {data.courseTime} ساعت
           </div>
-          <div className="flex items-center gap-1 text-[#3ACA74] text-sm">
+          <div className="flex items-center gap-1 text-[#3ACA74] text-sm ">
             <FaMicrophoneAlt />
             {data.courseStatus}
           </div>
         </div>
-        <p className="flex text-sm gap-1 dark:text-slate-300">
+        <p className="flex text-sm gap-1 dark:text-slate-200">
           <FaUser />
           {data.teacher}
         </p>
@@ -76,9 +82,12 @@ const CardCourse = ({ data, bgColor, lineClamp, text }) => {
             </div>
             <span>خرید دوره</span>
           </button>
-          <p className="font-bold font-yekanN dark:text-slate-50">
+          <p className="font-bold font-yekanN flex gap-1 dark:text-slate-100">
             {data.price.toLocaleString()}{" "}
-            <span className="font-yekanL font-light">تومان</span>
+            <img
+              src={darkMode ? whiteToman : toman}
+              className="object-contain w-5"
+            />
           </p>
         </div>
       </Card>
@@ -86,4 +95,4 @@ const CardCourse = ({ data, bgColor, lineClamp, text }) => {
   );
 };
 
-export default CardCourse;
+export default CardCourse2;

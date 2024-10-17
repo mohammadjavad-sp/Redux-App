@@ -10,7 +10,11 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import CoursePage from "./Pages/CoursesPage/CoursePage";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
-
+import ReturnToTop from "./Components/ReturnToTop/ReturnToTop";
+import Support from "./Components/Support/Support";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 function App() {
   const { darkMode } = useSelector((store) => store.globals);
   useEffect(() => {
@@ -28,13 +32,15 @@ function App() {
       <ScrollToTop />
       <Menu />
       <Routes>
-        <Route path="/Redux-App/" element={<HomePage />} />
+        <Route path="/Redux-App/home" element={<HomePage />} />
         <Route path="/Redux-App/courses" element={<CoursesPage />} />
         <Route path="/Redux-App/courses/:id" element={<CoursePage />} />
         <Route path="/Redux-App/articles" element={<ArticlesPage />} />
         <Route path="/Redux-App/about" element={<AboutPage />} />
         <Route path="/Redux-App/contact" element={<ContactPage />} />
       </Routes>
+      <Support />
+      <ReturnToTop />
     </>
   );
 }

@@ -9,7 +9,7 @@ const DemoCourse = ({courseName , courseLogo}) => {
             
             <span className="text-white">{courseLogo}</span>
           </div>
-          <p className="font-yekanB mt-4">{courseName}</p>
+          <p className="font-yekanB mt-4 dark:text-white">{courseName}</p>
         </div>
         </>
      );

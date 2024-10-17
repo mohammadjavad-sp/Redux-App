@@ -14,7 +14,6 @@ import DemoCourses from "../../Components/DemoCourses/DemoCourses";
 import CoursesSwiper from "../../Components/CoursesSwiper/CoursesSwiper";
 import Footer from "../../Components/Footer/Footer";
 import ReviewsSwiper from "../../Components/ReviewsSwiper/ReviewsSwiper";
-import styles from "./HomePage.module.css";
 import { FaBrain, FaDatabase, FaFingerprint, FaReact } from "react-icons/fa";
 import { MdOutlineSecurity } from "react-icons/md";
 import { GrUserWorker } from "react-icons/gr";
@@ -25,9 +24,9 @@ import Timer from "../../Components/Timer/Timer";
 const HomePage = () => {
   return (
     <>
-      <header className="bg-[#F4F5F7]">
-        <div className="flex w-[88%] justify-between items-center mx-auto">
-          <div className="w-[50%] flex flex-col gap-7">
+      <header className="bg-[#F4F5F7] dark:bg-dark3 pt-10 xl:pt-0">
+        <div className="flex flex-col lg:flex-row w-[88%] justify-between items-center mx-auto">
+          <div className="lg:w-[50%] xl:pl-24 flex flex-col gap-7 items-center lg:items-start">
             <div className="flex">
               <div className="bg-[#FF3D3D] w-max rounded-full flex relative items-center">
                 <img
@@ -43,14 +42,14 @@ const HomePage = () => {
                 <img src={emoji} className="size-4 mr-1" />
               </p>
             </div>
-            <h1 className="text-[49px] font-pinarEB text-rang1 dark:text-slate-200">
+            <h1 className="lg:text-[45px] text-[30px] font-pinarEB text-rang1 dark:text-slate-200">
               برنامه نویسی را سریع و آسان یاد بگیرید
             </h1>
-            <p className="text-[17px] text-[#B5BAC2]">
+            <p className="lg:text-[17px] text-[14px] text-[#9a9fa7] leading-[30px]">
               یادگیری برنامه‌نویسی آرزو نیست، فقط نیاز هست تلاش و تمرین داشته
               باشید، بقیه‌اش با ما !
             </p>
-            <div className="flex items-center justify-between w-[468px] h-[120px] bg-[#EBECEE] dark:bg-slate-600 rounded-xl p-5">
+            <div className="flex flex-col lg:flex-row items-center justify-between lg:w-[468px] lg:h-[120px] lg:bg-[#EBECEE] dark:bg-dark2 rounded-xl lg:p-5 gap-5 lg:gap-0">
               <Button
                 className="rounded-full"
                 size="xl"
@@ -86,11 +85,14 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className="relative w-[50%]">
+          <div className="relative lg:w-[50%]">
             <img src={plus} className="absolute z-10" />
-            <img src={imgHeader} className="size-[600px]" />
+            <img src={imgHeader} className="" />
             <img src={shape1} className="absolute left-0 bottom-16" />
-            <img src={shape2} className="absolute left-0 bottom-24" />
+            <img
+              src={shape2}
+              className="absolute hidden lg:block left-0 bottom-24"
+            />
           </div>
         </div>
       </header>
@@ -101,95 +103,105 @@ const HomePage = () => {
 
       <ReviewsSwiper />
 
-      <section className="bg-[#F4F5F7] text-center py-20">
-        <p className="font-yekanEB text-[28px] text-[#2A2D53]">
+      <section className="bg-[#F4F5F7] dark:bg-dark3 text-center lg:py-20 py-10">
+        <p className="font-yekanEB text-[28px] text-[#2A2D53] dark:text-slate-100">
           مسیر یادگیری برنامه نویسی
         </p>
-        <p className="text-[#2A2D53] mt-3">نقشه راه ورود به دنیای کدنویسی</p>
+        <p className="text-[#2A2D53] dark:text-slate-300 mt-3">نقشه راه ورود به دنیای کدنویسی</p>
         <div
-          className={`${styles.roadMap} mx-auto mt-10 flex justify-between w-[88%]`}
+          className={` mx-auto mt-10 flex lg:justify-between flex-wrap w-[88%] gap-10 lg:gap-0 justify-center`}
         >
           <div className="flex flex-col items-center  ">
-            <div className="rounded-[30px] shadow-lg p-6">
-              <FaFingerprint size={40} color="#555775" />
+            <div className="rounded-[30px] dark:bg-gradient-to-t from-dark1 to-dark3 shadow-lg p-6">
+              <FaFingerprint size={40} className="text-[#555775] dark:text-slate-400" />
             </div>
-            <p className="text-[#555775] mt-3">اصول فرانت اند</p>
+            <p className="text-[#555775] dark:text-slate-300 mt-3">اصول فرانت اند</p>
           </div>
-          <img src={arrow} className="rotate-90 w-5 object-contain" alt="" />
+          <img
+            src={arrow}
+            className="rotate-90 hidden lg:block w-5 object-contain"
+            alt=""
+          />
           <div className="flex flex-col items-center  ">
-            <div className="rounded-[30px] shadow-lg p-6">
-              <FaDatabase size={40} color="#555775" />
+            <div className="rounded-[30px] dark:bg-gradient-to-t from-dark1 to-dark3 shadow-lg p-6">
+              <FaDatabase size={40} className="text-[#555775] dark:text-slate-400" />
             </div>
-            <p className="text-[#555775] mt-3">شروع بکند</p>
+            <p className="text-[#555775] dark:text-slate-300 mt-3">شروع بکند</p>
           </div>
-          <img src={arrow} className="rotate-90 w-5 object-contain" alt="" />
+          <img
+            src={arrow}
+            className="rotate-90 hidden lg:block w-5 object-contain"
+            alt=""
+          />
           <div className="flex flex-col items-center  ">
-            <div className="rounded-[30px] shadow-lg p-6">
-              <MdOutlineSecurity size={40} color="#555775" />
+            <div className="rounded-[30px] dark:bg-gradient-to-t from-dark1 to-dark3 shadow-lg p-6">
+              <MdOutlineSecurity size={40} className="text-[#555775] dark:text-slate-400" />
             </div>
-            <p className="text-[#555775] mt-3">هک و امنیت</p>
+            <p className="text-[#555775] dark:text-slate-300 mt-3">هک و امنیت</p>
           </div>
-          <img src={arrow} className="rotate-90 w-5 object-contain" alt="" />
+          <img
+            src={arrow}
+            className="rotate-90 hidden lg:block w-5 object-contain"
+            alt=""
+          />
           <div className="flex flex-col items-center  ">
-            <div className="rounded-[30px] shadow-lg p-6">
-              <FaReact size={40} color="#555775" />
+            <div className="rounded-[30px] dark:bg-gradient-to-t from-dark1 to-dark3 shadow-lg p-6">
+              <FaReact size={40} className="text-[#555775] dark:text-slate-400" />
             </div>
-            <p className="text-[#555775] mt-3">فریم ورک ها</p>
+            <p className="text-[#555775] dark:text-slate-300 mt-3">فریم ورک ها</p>
           </div>
-          <img src={arrow} className="rotate-90 w-5 object-contain" alt="" />
+          <img
+            src={arrow}
+            className="rotate-90 hidden lg:block w-5 object-contain"
+            alt=""
+          />
           <div className="flex flex-col items-center  ">
-            <div className="rounded-[30px] shadow-lg p-6">
-              <FaBrain size={40} color="#555775" />
+            <div className="rounded-[30px] dark:bg-gradient-to-t from-dark1 to-dark3 shadow-lg p-6">
+              <FaBrain size={40} className="text-[#555775] dark:text-slate-400" />
             </div>
-            <p className="text-[#555775] mt-3">ساخت نمونه کار</p>
+            <p className="text-[#555775] dark:text-slate-300 mt-3">ساخت نمونه کار</p>
           </div>
-          <img src={arrow} className="rotate-90 w-5 object-contain" alt="" />
+          <img
+            src={arrow}
+            className="rotate-90 hidden lg:block w-5 object-contain"
+            alt=""
+          />
           <div className="flex flex-col items-center  ">
-            <div className="rounded-[30px] shadow-lg p-6">
-              <GrUserWorker size={40} color="#555775" />
+            <div className="rounded-[30px] dark:bg-gradient-to-t from-dark1 to-dark3 shadow-lg p-6">
+              <GrUserWorker size={40} className="text-[#555775] dark:text-slate-400" />
             </div>
-            <p className="text-[#555775] mt-3">استخدام موفق</p>
+            <p className="text-[#555775] dark:text-slate-300 mt-3">استخدام موفق</p>
           </div>
         </div>
       </section>
 
-      <section className="w-full bg-[#F4F5F7] py-20">
-        <div className="w-[80%] flex justify-between mx-auto items-center ">
+      <section className="w-full bg-[#F4F5F7] dark:bg-dark3 lg:py-20 py-10">
+        <div className="w-[80%] flex flex-col lg:flex-row justify-between mx-auto items-center gap-10">
           <div>
-            <img src={person} className="w-[450px]" alt="" />
+            <img src={person} className="lg:w-[450px]" alt="" />
           </div>
           <div className="flex items-center flex-col">
-            <Timer/>
+            <Timer />
             <img src={message} className="w-32" alt="" />
-            <p className="text-[29px] font-yekanEB mt-2 text-[#474B53]">
+            <p className="md:text-[29px] dark:text-slate-200 text-[20px] font-yekanEB mt-2 text-[#474B53]">
               منتظر اتفاق های خوب باشید ...
             </p>
-            <p className="text-[20px] font-yekanL mt-5">
+            <p className="md:text-[20px] dark:text-slate-300 font-yekanL mt-5">
               ثبت نام کن تا زودتر از همه باخبر بشی!
             </p>
 
-            <div
-              className={` w-full mt-10 flex flex-col items-center justify-center`}
-            >
-              <div className="flex rounded-md bg-white shadow-xl p-2">
-                <input
-                  type="text"
-                  placeholder="نام و نام خانوادگی"
-                  className="bg-transparent border-0 text-black !ring-0"
-                />
-                <input
-                  type="email"
-                  placeholder="آدرس ایمیل"
-                  className="bg-transparent border-0 text-black !ring-0"
-                />
-                <Button
-                  color="failure"
-                  className="w-[60px] h-[60px] rounded-md flex justify-center items-center"
-                >
-                  ارسال
-                </Button>
-              </div>
+            <div className="rounded-md bg-white dark:bg-dark1 shadow-xl p-2 mt-10 flex w-[95%] justify-between">
+              <input type="text" placeholder="نام و نام خانوادگی" className="bg-transparent text-[10px] sm:text-[16px] border-0 dark:text-white text-black w-[40%] !ring-0" />
+              <input type="text" placeholder="آدرس ایمیل"  className="bg-transparent text-[10px] sm:text-[16px] border-0 text-black dark:text-white w-[40%] !ring-0" />
+              <Button
+                color="failure"
+                className="w-[60px] h-[60px] rounded-md flex justify-center items-center"
+              >
+                ارسال
+              </Button>
             </div>
+
+           
           </div>
         </div>
       </section>
