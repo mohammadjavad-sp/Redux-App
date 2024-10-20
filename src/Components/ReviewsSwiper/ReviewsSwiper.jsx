@@ -3,33 +3,42 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import styles from "./ReviewsSwiper.module.css";
-import reviewPic1 from "../../assets/images/homePage/mem5.webp";
-import reviewPic2 from "../../assets/images/homePage/mem6.jpg";
-import reviewPic3 from "../../assets/images/homePage/story-3.jpg";
+import reviewPic1 from "../../assets/images/homePage/mehdi.jpg";
+import reviewPic2 from "../../assets/images/homePage/pariya.jpg";
+import reviewPic3 from "../../assets/images/homePage/ava.jpg";
 import { FaStar } from "react-icons/fa";
+import i18next, { t } from "i18next";
 const ReviewsSwiper = () => {
   const reviews = [
     {
       id: 1,
-      name: "مهدی جان نثاری",
+      name: t("reviewsName.mehdi"),
       pic: reviewPic1,
     },
     {
       id: 2,
-      name: "پریا ولی",
+      name: t("reviewsName.pariya"),
       pic: reviewPic2,
     },
     {
       id: 3,
-      name: "آوا فتحعلی",
+      name: t("reviewsName.ava"),
       pic: reviewPic3,
     },
   ];
   return (
     <>
-      <div className="w-full bg-[#F4F5F7] dark:bg-dark3 text-center">
-        <h2 className="text-[24px] text-[#2DA706] font-yekanEB">دانشجویان ما چه می گویند</h2>
-        <p className="text-[14px] text-slate-500 dark:text-slate-400 mb-10">صدای شما را می شنویم و تا آخرین قدم کنارتان هستیم</p>
+      <div className={`w-full bg-[#F4F5F7] dark:bg-dark3 text-center `}>
+        <h2
+          className={`text-[24px] text-[#2DA706] font-yekanEB ${
+            i18next.language == "en" && "ltr"
+          }`}
+        >
+          {t("studentsSays")}
+        </h2>
+        <p className="text-[14px] text-slate-500 dark:text-slate-400 mb-10">
+          {t("textStudentsSays")}
+        </p>
         <Swiper
           effect={"cards"}
           grabCursor={true}
@@ -60,9 +69,7 @@ const ReviewsSwiper = () => {
                   <FaStar />
                 </div>
                 <p className="lg:text-[16px] md:text-[14px] text-[12px] px-5 text-justify text-slate-700 dark:text-slate-300 font-yekanL">
-                  تا قبل از آشنایی با خدمات طراحی اپلیکیشن شما تجربه ناموفقی را
-                  با دو شرکت مختلف تجربه کردم که منجر به شکست شد. اما بعد از
-                  تحویل اپلیکیشن ساخته شده توسط شما کسب و کارم متحول شد.
+                  {t("decriptionStudentSays")}
                 </p>
               </div>
             </SwiperSlide>

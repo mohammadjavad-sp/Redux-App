@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { useEffect, useState } from "react";
 
 const Timer = () => {
@@ -57,23 +58,23 @@ const Timer = () => {
         <div className="bg-[#DE2545] flex items-center justify-center text-white rounded-2xl size-[70px] shadow-lg shadow-[#DE2545] text-center">
           {timeLeft.days}
           <br />
-          روز
+          {t("timer.day")}
         </div>
         <div className="bg-[#DE2545] flex items-center justify-center text-white rounded-2xl size-[70px] shadow-lg shadow-[#DE2545] text-center">
           {timeLeft.hours}
           <br />
-          ساعت
+          {t("timer.hour")}
         </div>
         <div className="bg-[#DE2545] flex items-center justify-center text-white rounded-2xl size-[70px] shadow-lg shadow-[#DE2545] text-center">
           {timeLeft.minutes}
           <br />
-          دقیقه
+          {t("timer.minute")}
         </div>
 
         <div className="bg-[#DE2545] flex items-center justify-center text-white rounded-2xl size-[70px] shadow-lg shadow-[#DE2545] text-center">
           {timeLeft.seconds}
           <br />
-          ثانیه
+          {t("timer.second")}
         </div>
       </div>
     </>

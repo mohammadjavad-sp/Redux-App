@@ -21,41 +21,79 @@ import arrow from "../../assets/images/homePage/arrow.png";
 import person from "../../assets/images/homePage/person-ok.webp";
 import message from "../../assets/images/homePage/message-1.svg";
 import Timer from "../../Components/Timer/Timer";
+import { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 const HomePage = () => {
+  const { t } = useTranslation();
   return (
     <>
-      <header className="bg-[#F4F5F7] dark:bg-dark3 pt-10 xl:pt-0">
+      <Toaster
+        position="top-left"
+        toastOptions={{ className: "!bg-slate-200" }}
+      />
+      <header
+        className={`bg-[#F4F5F7] dark:bg-dark3 pt-10 xl:pt-0 ${
+          i18next.language == "en" && "ltr"
+        }`}
+      >
         <div className="flex flex-col lg:flex-row w-[88%] justify-between items-center mx-auto">
           <div className="lg:w-[50%] xl:pl-24 flex flex-col gap-7 items-center lg:items-start">
-            <div className="flex">
-              <div className="bg-[#FF3D3D] w-max rounded-full flex relative items-center">
+            <div className={`flex `}>
+              <div
+                className={`bg-[#FF3D3D] w-max rounded-full flex relative items-center ${
+                  i18next.language == "en" && "ltr"
+                }`}
+              >
                 <img
                   src={star}
-                  className="size-[40px] absolute translate-x-1"
+                  className={`size-[40px] absolute translate-x-1 ${
+                    i18next.language == "en" && "translate-x-[-2px]"
+                  }`}
                 />
-                <p className="pr-12 pl-3 py-1 text-white text-[14px]">
-                  بوت کمپ بعدی
+                <p
+                  className={`pr-12 pl-3 py-1 text-white text-[14px] ${
+                    i18next.language == "en" && "pr-3 pl-[45px]"
+                  }`}
+                >
+                  {t("nextBootCamp")}
                 </p>
               </div>
-              <p className="flex items-center dark:text-white text-[14px] mr-2 font-yekanB">
-                زمستان <span className="font-yekanN">1403</span>
+              <p
+                className={`flex items-center dark:text-white text-[14px] mr-2 font-yekanB ${
+                  i18next.language == "en" && "ml-2"
+                }`}
+              >
+                {t("winter")}{" "}
+                <span
+                  className={`font-yekanN ${
+                    i18next.language == "en" &&
+                    "font-sans font-bold translate-y-[-2px] ml-1"
+                  }`}
+                >
+                  {t("year")}
+                </span>
                 <img src={emoji} className="size-4 mr-1" />
               </p>
             </div>
             <h1 className="lg:text-[45px] text-[30px] font-pinarEB text-rang1 dark:text-slate-200">
-              برنامه نویسی را سریع و آسان یاد بگیرید
+              {t("siteSlogen")}
             </h1>
             <p className="lg:text-[17px] text-[14px] text-[#9a9fa7] leading-[30px]">
-              یادگیری برنامه‌نویسی آرزو نیست، فقط نیاز هست تلاش و تمرین داشته
-              باشید، بقیه‌اش با ما !
+              {t("siteSlogen2")}
             </p>
-            <div className="flex flex-col lg:flex-row items-center justify-between lg:w-[468px] lg:h-[120px] lg:bg-[#EBECEE] dark:bg-dark2 rounded-xl lg:p-5 gap-5 lg:gap-0">
+            <div
+              className={`flex flex-col lg:flex-row items-center justify-between lg:w-[468px] lg:h-[120px] lg:bg-[#EBECEE] dark:bg-dark2 rounded-xl lg:p-5 gap-5 lg:gap-0 ${
+                i18next.language == "en" && "rtl"
+              }`}
+            >
               <Button
                 className="rounded-full"
                 size="xl"
                 gradientDuoTone="purpleToPink"
               >
-                مشاهده دوره ها
+                <Link to="/Redux-App/courses">{t("showCourses")}</Link>
               </Button>
               <div className="flex flex-col gap-3 items-center">
                 <div className="flex">
@@ -76,10 +114,17 @@ const HomePage = () => {
                     className="rounded-full size-10 z-10 ring-4 ring-[#EBECEE]"
                   />
                 </div>
-                <div className="flex">
+                <div className={`flex ${i18next.language == "en" && "ltr"}`}>
                   <img src={member} alt="" />
                   <p className="dark:text-white">
-                    <span className="font-yekanN ">700</span>k+ دانشجو
+                    <span
+                      className={`font-yekanN ${
+                        i18next.language == "en" && "font-sans font-bold"
+                      }`}
+                    >
+                      700
+                    </span>
+                    k+ {t("student")}
                   </p>
                 </div>
               </div>
@@ -105,77 +150,120 @@ const HomePage = () => {
 
       <section className="bg-[#F4F5F7] dark:bg-dark3 text-center lg:py-20 py-10">
         <p className="font-yekanEB text-[28px] text-[#2A2D53] dark:text-slate-100">
-          مسیر یادگیری برنامه نویسی
+          {t("learning.titr")}
         </p>
-        <p className="text-[#2A2D53] dark:text-slate-300 mt-3">نقشه راه ورود به دنیای کدنویسی</p>
+        <p className="text-[#2A2D53] dark:text-slate-300 mt-3">
+          {t("learning.text")}
+        </p>
         <div
-          className={` mx-auto mt-10 flex lg:justify-between flex-wrap w-[88%] gap-10 lg:gap-0 justify-center`}
+          className={` mx-auto mt-10 flex lg:justify-between flex-wrap w-[88%] gap-10 lg:gap-0 justify-center ${
+            i18next.language == "en" && "ltr"
+          }`}
         >
           <div className="flex flex-col items-center  ">
             <div className="rounded-[30px] dark:bg-gradient-to-t from-dark1 to-dark3 shadow-lg p-6">
-              <FaFingerprint size={40} className="text-[#555775] dark:text-slate-400" />
+              <FaFingerprint
+                size={40}
+                className="text-[#555775] dark:text-slate-400"
+              />
             </div>
-            <p className="text-[#555775] dark:text-slate-300 mt-3">اصول فرانت اند</p>
+            <p className="text-[#555775] dark:text-slate-300 mt-3">
+              {t("learning.front")}
+            </p>
           </div>
           <img
             src={arrow}
-            className="rotate-90 hidden lg:block w-5 object-contain"
-            alt=""
+            className={`rotate-90 hidden lg:block w-5 object-contain ${
+              i18next.language == "en" && "rotate-[280deg]"
+            } `}
           />
           <div className="flex flex-col items-center  ">
             <div className="rounded-[30px] dark:bg-gradient-to-t from-dark1 to-dark3 shadow-lg p-6">
-              <FaDatabase size={40} className="text-[#555775] dark:text-slate-400" />
+              <FaDatabase
+                size={40}
+                className="text-[#555775] dark:text-slate-400"
+              />
             </div>
-            <p className="text-[#555775] dark:text-slate-300 mt-3">شروع بکند</p>
+            <p className="text-[#555775] dark:text-slate-300 mt-3">
+              {t("learning.back")}
+            </p>
           </div>
           <img
             src={arrow}
-            className="rotate-90 hidden lg:block w-5 object-contain"
-            alt=""
+            className={`rotate-90 hidden lg:block w-5 object-contain ${
+              i18next.language == "en" && "rotate-[280deg]"
+            } `}
           />
           <div className="flex flex-col items-center  ">
             <div className="rounded-[30px] dark:bg-gradient-to-t from-dark1 to-dark3 shadow-lg p-6">
-              <MdOutlineSecurity size={40} className="text-[#555775] dark:text-slate-400" />
+              <MdOutlineSecurity
+                size={40}
+                className="text-[#555775] dark:text-slate-400"
+              />
             </div>
-            <p className="text-[#555775] dark:text-slate-300 mt-3">هک و امنیت</p>
+            <p className="text-[#555775] dark:text-slate-300 mt-3">
+              {t("learning.hack")}
+            </p>
           </div>
           <img
             src={arrow}
-            className="rotate-90 hidden lg:block w-5 object-contain"
-            alt=""
+            className={`rotate-90 hidden lg:block w-5 object-contain ${
+              i18next.language == "en" && "rotate-[280deg]"
+            } `}
           />
           <div className="flex flex-col items-center  ">
             <div className="rounded-[30px] dark:bg-gradient-to-t from-dark1 to-dark3 shadow-lg p-6">
-              <FaReact size={40} className="text-[#555775] dark:text-slate-400" />
+              <FaReact
+                size={40}
+                className="text-[#555775] dark:text-slate-400"
+              />
             </div>
-            <p className="text-[#555775] dark:text-slate-300 mt-3">فریم ورک ها</p>
+            <p className="text-[#555775] dark:text-slate-300 mt-3">
+              {t("learning.frame")}
+            </p>
           </div>
           <img
             src={arrow}
-            className="rotate-90 hidden lg:block w-5 object-contain"
-            alt=""
+            className={`rotate-90 hidden lg:block w-5 object-contain ${
+              i18next.language == "en" && "rotate-[280deg]"
+            } `}
           />
           <div className="flex flex-col items-center  ">
             <div className="rounded-[30px] dark:bg-gradient-to-t from-dark1 to-dark3 shadow-lg p-6">
-              <FaBrain size={40} className="text-[#555775] dark:text-slate-400" />
+              <FaBrain
+                size={40}
+                className="text-[#555775] dark:text-slate-400"
+              />
             </div>
-            <p className="text-[#555775] dark:text-slate-300 mt-3">ساخت نمونه کار</p>
+            <p className="text-[#555775] dark:text-slate-300 mt-3">
+              {t("learning.portfolio")}
+            </p>
           </div>
           <img
             src={arrow}
-            className="rotate-90 hidden lg:block w-5 object-contain"
-            alt=""
+            className={`rotate-90 hidden lg:block w-5 object-contain ${
+              i18next.language == "en" && "rotate-[280deg]"
+            } `}
           />
           <div className="flex flex-col items-center  ">
             <div className="rounded-[30px] dark:bg-gradient-to-t from-dark1 to-dark3 shadow-lg p-6">
-              <GrUserWorker size={40} className="text-[#555775] dark:text-slate-400" />
+              <GrUserWorker
+                size={40}
+                className="text-[#555775] dark:text-slate-400"
+              />
             </div>
-            <p className="text-[#555775] dark:text-slate-300 mt-3">استخدام موفق</p>
+            <p className="text-[#555775] dark:text-slate-300 mt-3">
+              {t("learning.recruitment")}
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="w-full bg-[#F4F5F7] dark:bg-dark3 lg:py-20 py-10">
+      <section
+        className={`w-full bg-[#F4F5F7] dark:bg-dark3 lg:py-20 py-10 ${
+          i18next.language == "en" && "ltr"
+        }`}
+      >
         <div className="w-[80%] flex flex-col lg:flex-row justify-between mx-auto items-center gap-10">
           <div>
             <img src={person} className="lg:w-[450px]" alt="" />
@@ -184,24 +272,34 @@ const HomePage = () => {
             <Timer />
             <img src={message} className="w-32" alt="" />
             <p className="md:text-[29px] dark:text-slate-200 text-[20px] font-yekanEB mt-2 text-[#474B53]">
-              منتظر اتفاق های خوب باشید ...
+              {t("timer.titr")}
             </p>
             <p className="md:text-[20px] dark:text-slate-300 font-yekanL mt-5">
-              ثبت نام کن تا زودتر از همه باخبر بشی!
+              {t("timer.text")}
             </p>
 
-            <div className="rounded-md bg-white dark:bg-dark1 shadow-xl p-2 mt-10 flex w-[95%] justify-between">
-              <input type="text" placeholder="نام و نام خانوادگی" className="bg-transparent text-[10px] sm:text-[16px] border-0 dark:text-white text-black w-[40%] !ring-0" />
-              <input type="text" placeholder="آدرس ایمیل"  className="bg-transparent text-[10px] sm:text-[16px] border-0 text-black dark:text-white w-[40%] !ring-0" />
+            <div
+              className={`rounded-md bg-white dark:bg-dark1 shadow-xl p-2 mt-10 flex w-[95%] justify-between ${
+                i18next.language == "en" && "ltr"
+              }`}
+            >
+              <input
+                type="text"
+                placeholder={t("timer.name")}
+                className="bg-transparent text-[10px] sm:text-[16px] border-0 dark:text-white text-black w-[40%] !ring-0"
+              />
+              <input
+                type="text"
+                placeholder={t("timer.email")}
+                className="bg-transparent text-[10px] sm:text-[16px] border-0 text-black dark:text-white w-[40%] !ring-0"
+              />
               <Button
                 color="failure"
                 className="w-[60px] h-[60px] rounded-md flex justify-center items-center"
               >
-                ارسال
+                {t("timer.send")}
               </Button>
             </div>
-
-           
           </div>
         </div>
       </section>

@@ -5,6 +5,9 @@ import { FaCartShopping } from "react-icons/fa6";
 import { IoIosArrowRoundBack, IoMdTime } from "react-icons/io";
 import { FaMicrophoneAlt, FaStar, FaUser } from "react-icons/fa";
 import { PiStudent } from "react-icons/pi";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../Redux/slices/cart";
+import toast from "react-hot-toast";
 const customTheme = {
   root: {
     base: "flex rounded-lg border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800 !justify-between",
@@ -25,6 +28,22 @@ const customTheme = {
 };
 
 const CardCourse = ({ data, bgColor, lineClamp, text }) => {
+  const dispatch = useDispatch();
+  const { addedCourses } = useSelector((store) => store.cart);
+
+  const addCourseToCart = () => {
+    if (isCourseExistInCart()) {
+      toast.error("دوره قبلا به سبد خرید اضافه شده !!");
+    } else {
+      dispatch(addToCart(data));
+      toast.success("دوره با موفقیت به سبد خرید اضافه شد :))");
+    }
+  };
+
+  const isCourseExistInCart = () => {
+    return addedCourses.some((course) => course.id == data.id);
+  };
+
   return (
     <>
       <Card
@@ -68,7 +87,11 @@ const CardCourse = ({ data, bgColor, lineClamp, text }) => {
           مشاهده اطلاعات دوره <IoIosArrowRoundBack size={25} />
         </Link>
         <div className="flex items-center justify-between">
-          <button dir="ltr" className={`${styles.btnCart} shadow-xl`}>
+          <button
+            dir="ltr"
+            className={`${styles.btnCart} shadow-xl`}
+            onClick={addCourseToCart}
+          >
             <div className={styles.svgWrapper1}>
               <div className={styles.svgWrapper}>
                 <FaCartShopping />

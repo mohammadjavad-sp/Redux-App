@@ -1,6 +1,6 @@
 import { Breadcrumb, Button, Flowbite, Progress } from "flowbite-react";
 import "./CoursePage.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import toman from "../../assets/images/coursePage/svgexport-36.svg";
 import tomanWhite from "../../assets/images/coursePage/whiteToman.svg";
@@ -18,8 +18,13 @@ import rj from "../../assets/images/coursePage/rj.jpg";
 import eli from "../../assets/images/coursePage/eli.jpg";
 import ali from "../../assets/images/coursePage/ali.jpg";
 import Footer from "../../Components/Footer/Footer";
+import toast, { Toaster } from "react-hot-toast";
+import { addToCart } from "../../Redux/slices/cart";
 
 const CoursePage = () => {
+  const dispatch = useDispatch();
+  const { addedCourses } = useSelector((store) => store.cart);
+
   const { darkMode } = useSelector((store) => store.globals);
   const [isExpanded, setIsExpanded] = useState(false);
   const [teacherAx, setTeacherAx] = useState(null);
@@ -40,8 +45,27 @@ const CoursePage = () => {
     }
   });
 
+  
+
+  const addCourseToCart = () => {
+    if (isCourseExistInCart()) {
+      toast.error("دوره قبلا به سبد خرید اضافه شده !!");
+    } else {
+      dispatch(addToCart(course));
+      toast.success("دوره با موفقیت به سبد خرید اضافه شد :))");
+    }
+  };
+
+  const isCourseExistInCart = () => {
+    return addedCourses.some((item) => item.id == course.id);
+  };
+
   return (
     <>
+    <Toaster
+        position="top-left"
+        toastOptions={{ className: "!bg-slate-200" }}
+      />
       <div className="lg:py-10 py-5 bg-[#F3F4F6] dark:bg-dark1 w-full px-5">
         <div className="breadCrumb bg-white dark:bg-dark2 container h-12 rounded-xl items-center flex px-5 overflow-x-auto text-nowrap">
           <Breadcrumb aria-label="Default breadcrumb example">
@@ -73,7 +97,7 @@ const CoursePage = () => {
               </p>
             </div>
             <div className="flex lg:justify-between justify-center gap-5 items-center">
-              <Button color="success" pill>
+              <Button color="success" pill onClick={addCourseToCart}>
                 افزودن به سبد خرید
               </Button>
               <p className="flex items-center font-yekanN md:text-[28px] text-[18px] font-bold gap-1 dark:text-slate-100">

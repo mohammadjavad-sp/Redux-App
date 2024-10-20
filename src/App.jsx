@@ -14,6 +14,7 @@ import ReturnToTop from "./Components/ReturnToTop/ReturnToTop";
 import Support from "./Components/Support/Support";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import CartPage from "./Pages/CartPage/CartPage";
 AOS.init();
 function App() {
   const { darkMode } = useSelector((store) => store.globals);
@@ -32,12 +33,13 @@ function App() {
       <ScrollToTop />
       <Menu />
       <Routes>
-        <Route path="/Redux-App/home" element={<HomePage />} />
+        <Route path="/Redux-App/home/" element={<HomePage />} />
         <Route path="/Redux-App/courses" element={<CoursesPage />} />
         <Route path="/Redux-App/courses/:id" element={<CoursePage />} />
         <Route path="/Redux-App/articles" element={<ArticlesPage />} />
         <Route path="/Redux-App/about" element={<AboutPage />} />
         <Route path="/Redux-App/contact" element={<ContactPage />} />
+        <Route path="/Redux-App/cart" element={<CartPage />} />
       </Routes>
       <Support />
       <ReturnToTop />

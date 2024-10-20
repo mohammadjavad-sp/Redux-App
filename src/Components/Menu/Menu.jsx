@@ -11,10 +11,13 @@ import {
   toggleDarkMode,
 } from "../../Redux/slices/globals";
 import { useEffect, useState } from "react";
+import { FaCartShopping } from "react-icons/fa6";
+import i18n from "../../i18n";
 
 const Menu = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [nowLanguage, setNowLanguage] = useState("fa");
   const dispatch = useDispatch();
   const { offCanvas, darkMode } = useSelector((store) => store.globals);
   if (offCanvas) {
@@ -38,6 +41,18 @@ const Menu = () => {
       window.removeEventListener("scroll", scrollHandler);
     };
   }, [lastScrollY]);
+
+  const { addedToCart } = useSelector((store) => store.cart);
+
+  const changeLanguages = () => {
+    if (i18n.language == "fa") {
+      i18n.changeLanguage("en");
+      setNowLanguage("fa")
+    } else {
+      i18n.changeLanguage("fa");
+      setNowLanguage("en")
+    }
+  };
 
   return (
     <>
@@ -81,19 +96,36 @@ const Menu = () => {
 
           <div className="flex">
             <div className="flex items-center lg:ml-5 gap-3">
+              <Link
+                to="/Redux-App/cart"
+                className="bg-slate-100 dark:bg-dark2 dark:hover:bg-slate-600 size-10 flex items-center justify-center rounded-md hover:bg-slate-200 dark:text-slate-200 relative"
+              >
+                <FaCartShopping size={22} />
+                {addedToCart > 0 && (
+                  <span className="absolute top-[-10px] right-[-10px] size-5 flex items-center justify-center text-sm rounded-full bg-slate-500 font-yekanN text-white">
+                    {addedToCart}
+                  </span>
+                )}
+              </Link>
               <button
                 className="bg-slate-100 dark:bg-dark2 dark:hover:bg-slate-600 size-10 flex items-center justify-center rounded-md hover:bg-slate-200"
                 onClick={() => dispatch(toggleDarkMode())}
               >
                 {darkMode ? (
-                  <MdOutlineLightMode size={25} className="dark:text-slate-100" />
+                  <MdOutlineLightMode
+                    size={25}
+                    className="dark:text-slate-100"
+                  />
                 ) : (
                   <MdOutlineDarkMode size={25} />
                 )}
               </button>
-              {/* <button className="bg-slate-100 size-10 flex items-center justify-center rounded-md hover:bg-slate-200">
-                en
-              </button> */}
+              <button
+                className="bg-slate-100 size-10 flex items-center justify-center rounded-md hover:bg-slate-200"
+                onClick={changeLanguages}
+              >
+                {nowLanguage}
+              </button>
             </div>
             <button className={`${styles.button} hidden lg:block`}>ورود</button>
           </div>
