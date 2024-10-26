@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { openSortModal } from "../../Redux/slices/filter";
+import { openSortModal, setSortName } from "../../Redux/slices/filter";
 import { useDispatch, useSelector } from "react-redux";
 import { SiTicktick } from "react-icons/si";
 import "./SortMobile.css";
+import { fetchCourses, fetchCoursesBySort } from "../../Redux/slices/courses";
 
 const SortMobile = () => {
   const [selected, setSelected] = useState("همه دوره ها");
@@ -16,6 +17,21 @@ const SortMobile = () => {
       document.body.style.overflow = "hidden";
     }
   });
+
+  useEffect(()=>{
+    if(selected == "ارزان ترین"){
+      dispatch(fetchCoursesBySort("ارزان ترین"))
+      dispatch(setSortName("ارزان ترین"))
+      dispatch(openSortModal())
+    }else if(selected == "گران ترین"){
+      dispatch(fetchCoursesBySort("گران ترین"))
+      dispatch(setSortName("گران ترین"))
+      dispatch(openSortModal())
+    }else{
+      dispatch(fetchCourses())
+      dispatch(setSortName("همه دوره ها"))
+    }
+  },[selected])
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchCourses,
@@ -21,19 +21,54 @@ import { openFilterModal, openSortModal } from "../../Redux/slices/filter";
 import SortMobile from "../../Components/Filters/SortMobile";
 import { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-
+import i18next from "i18next";
 
 const CoursesPage = () => {
-  const [isChecked, setIsChecked] = useState(false);
-  const [pagination, setPagination] = useState(9);
-  const [sort, setSort] = useState("همه دوره ها");
-
-  const {t} = useTranslation()
-
-  const options = ["همه دوره ها", "ارزان ترین", "گران ترین"];
-
+  const { t } = useTranslation();
+  const categorysContainer = useRef();
   const dispatch = useDispatch();
   const { allCourses } = useSelector((store) => store.courses);
+  const { sortName } = useSelector((store) => store.filter);
+
+  const [isChecked, setIsChecked] = useState(false);
+  const [pagination, setPagination] = useState(9);
+  const [sort, setSort] = useState(t("sorts.allCourses"));
+  const [category1, setCategory1] = useState(t("filters.allCourses"));
+
+  const options = [
+    t("sorts.allCourses"),
+    t("sorts.cheapest"),
+    t("sorts.expensivest"),
+  ];
+
+  const categorys = [
+    {
+      id: 1,
+      name: t("filters.allCourses"),
+      value: t("filters.allCourses"),
+      defaultChecked: true,
+      checked: category1 === t("filters.allCourses"),
+    },
+    {
+      id: 2,
+      name: t("filters.frontend"),
+      value: t("filters.frontend"),
+      defaultChecked: false,
+      checked: category1 === t("filters.frontend"),
+    },
+    {
+      id: 3,
+      name: t("filters.python"),
+      value: t("filters.python"),
+      defaultChecked: false,
+      checked: category1 === t("filters.python"),
+    },
+  ];
+
+  useEffect(() => {
+    setSort(t("sorts.allCourses"));
+  }, [t("sorts.allCourses")]);
+
   useEffect(() => {
     dispatch(fetchCourses());
   }, []);
@@ -41,10 +76,28 @@ const CoursesPage = () => {
   useEffect(() => {
     if (isChecked) {
       dispatch(fetchPreSaleCourses());
+      setSort(options[0]);
+      setCategory1(t("filters.allCourses"));
+      categorysContainer.current.style.display = "none";
     } else {
       dispatch(fetchCourses());
+      categorysContainer.current.style.display = "block";
     }
   }, [isChecked]);
+
+  const handleSearch = (e) => {
+    dispatch(fetchCoursesBySearch(e.target.value));
+    setIsChecked(false);
+    setSort(options[0]);
+    setCategory1(t("filters.allCourses"));
+  };
+
+  const handleCategoryChange = (e) => {
+    setIsChecked(false);
+    setCategory1(e.target.value);
+    setSort(options[0]);
+    dispatch(fetchCoursesByCategory(e.target.value));
+  };
 
   return (
     <>
@@ -52,8 +105,12 @@ const CoursesPage = () => {
         position="top-left"
         toastOptions={{ className: "!bg-slate-200" }}
       />
-      <section className="bg-[#F4F5F7] dark:bg-dark3 lg:py-7 pt-3">
-        <div className="container w-[88%] flex-col gap-2 sm:flex-row flex justify-between items-center">
+      <section className="bg-[#F4F5F7] dark:bg-dark3 py-7 pt-3">
+        <div
+          className={`container w-[88%] flex-col gap-2 sm:flex-row flex justify-between items-center ${
+            i18next.language == "en" && "ltr"
+          }`}
+        >
           <div className="flex items-center gap-1">
             <FaSquare color="#FBBF24" size={30} className="hidden sm:block" />
             <h1 className="lg:text-[30px] text-[25px] font-yekanEB dark:text-slate-200 text-rang1">
@@ -61,16 +118,22 @@ const CoursesPage = () => {
             </h1>
           </div>
           <div className="font-yekanN text-sm md:text-lg lg:text-xl text-slate-500 dark:text-slate-200">
-            {allCourses.length} عنوان آموزشی
+            {allCourses.length} {t("titles")}
           </div>
         </div>
-        <section className="container w-[88%] lg:mt-10 mt-5 flex flex-col lg:flex-row md:gap-8">
+        <section
+          className={`container w-[88%] lg:mt-10 mt-5 flex flex-col lg:flex-row md:gap-8 ${
+            i18next.language == "en" && "ltr"
+          }`}
+        >
           <div className="lg:w-[25%] w-full h-full">
-            <div className="flex items-center bg-white dark:bg-dark1 rounded-xl justify-between md:p-3 p-2">
+            <div
+              className={`flex items-center bg-white dark:bg-dark1 rounded-xl justify-between md:p-3 p-2 `}
+            >
               <input
                 type="text"
-                onChange={(e) => dispatch(fetchCoursesBySearch(e.target.value))}
-                placeholder="جستجو بین دوره ها"
+                onChange={handleSearch}
+                placeholder={t("filters.search")}
                 className="border-0 rounded-xl focus:ring-0 dark:bg-dark1 dark:text-white"
               />
               <HiMagnifyingGlass size={30} color="#64748B" />
@@ -89,12 +152,12 @@ const CoursesPage = () => {
                 onClick={() => dispatch(openSortModal())}
               >
                 <BiSort size={25} />
-                <p>همه دوره ها</p>
+                <p>{sortName}</p>
               </div>
             </div>
 
             <div className="md:flex items-center hidden bg-white dark:bg-dark1 dark:text-white rounded-xl justify-between p-4 mt-6">
-              <p>در حال پیش فروش</p>
+              <p>{t("filters.preSales")}</p>
               <div className={styles.checkboxWrapper}>
                 <input
                   id="_checkbox-26"
@@ -107,55 +170,44 @@ const CoursesPage = () => {
                 </label>
               </div>
             </div>
-            <div className=" bg-white dark:bg-dark1 dark:text-white hidden md:block rounded-xl justify-between p-4 mt-6">
-              <div className="flex items-center justify-between mb-3">
-                <p>همه دوره ها</p>
-                <Radio
-                  name="category"
-                  value="همه دوره ها"
-                  onChange={(e) =>
-                    dispatch(fetchCoursesByCategory(e.target.value))
-                  }
-                  defaultChecked
-                />
-              </div>
-              <div className="flex items-center justify-between mb-3">
-                <p>دوره های فرانت اند</p>
-                <Radio
-                  name="category"
-                  value="فرانت اند"
-                  onChange={(e) =>
-                    dispatch(fetchCoursesByCategory(e.target.value))
-                  }
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <p>دوره های پایتون</p>
-                <Radio
-                  name="category"
-                  value="پایتون"
-                  onChange={(e) =>
-                    dispatch(fetchCoursesByCategory(e.target.value))
-                  }
-                />
-              </div>
+            <div
+              className=" bg-white dark:bg-dark1 dark:text-white hidden md:block rounded-xl justify-between p-4 mt-6 "
+              ref={categorysContainer}
+            >
+              {categorys.map((category) => (
+                <div
+                  className="flex items-center justify-between mb-3"
+                  key={category.id}
+                >
+                  <p>{category.name}</p>
+                  <Radio
+                    name="category"
+                    value={category.value}
+                    onChange={handleCategoryChange}
+                    defaultChecked={category.defaultChecked}
+                    checked={category.checked}
+                  />
+                </div>
+              ))}
             </div>
           </div>
           <div className="lg:w-[75%]  h-full flex flex-col">
             <div className="bg-white dark:bg-dark1 dark:text-white container hidden md:flex w-full rounded-xl items-center px-5">
               <p className="flex items-center font-yekanB gap-2">
                 <BiSort size={25} />
-                مرتب سازی بر اساس :
+                {t("sorts.text")}
               </p>
-              <div className="flex items-center gap-8 text-sm font-yekanM mr-5">
+              <div className="flex items-center gap-8 text-sm font-yekanM mx-5">
                 {options.map((option) => (
                   <p
                     className={`${
                       sort == option && styles.activeSort
                     } py-4 cursor-pointer`}
                     onClick={() => {
-                      setSort(option)
-                      dispatch(fetchCoursesBySort(option))
+                      setSort(option);
+                      dispatch(fetchCoursesBySort(option));
+                      setIsChecked(false);
+                      setCategory1(t("filters.allCourses"));
                     }}
                     key={option}
                   >
@@ -187,10 +239,8 @@ const CoursesPage = () => {
           </div>
         </section>
       </section>
-
       <FilterMobile />
       <SortMobile />
-
       <Footer />
     </>
   );

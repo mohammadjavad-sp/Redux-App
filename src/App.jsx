@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import HomePage from "./Pages/HomePage/HomePage";
 import CoursesPage from "./Pages/CoursesPage/CoursesPage";
@@ -15,6 +15,7 @@ import Support from "./Components/Support/Support";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import CartPage from "./Pages/CartPage/CartPage";
+import LoginPage from "./Pages/LoginPage/LoginPage";
 AOS.init();
 function App() {
   const { darkMode } = useSelector((store) => store.globals);
@@ -33,13 +34,18 @@ function App() {
       <ScrollToTop />
       <Menu />
       <Routes>
-        <Route path="/Redux-App/home/" element={<HomePage />} />
+        <Route
+          path="/Redux-App"
+          element={<Navigate to="/Redux-App/home" replace />}
+        />
+        <Route path="/Redux-App/home" element={<HomePage />} />
         <Route path="/Redux-App/courses" element={<CoursesPage />} />
         <Route path="/Redux-App/courses/:id" element={<CoursePage />} />
         <Route path="/Redux-App/articles" element={<ArticlesPage />} />
         <Route path="/Redux-App/about" element={<AboutPage />} />
         <Route path="/Redux-App/contact" element={<ContactPage />} />
         <Route path="/Redux-App/cart" element={<CartPage />} />
+        <Route path="/Redux-App/login" element={<LoginPage />} />
       </Routes>
       <Support />
       <ReturnToTop />

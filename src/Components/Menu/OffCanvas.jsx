@@ -2,35 +2,86 @@ import { IoClose } from "react-icons/io5";
 import logo from "../../assets/images/logoipsum-332.svg";
 import { Link } from "react-router-dom";
 import { Button } from "flowbite-react";
-import { useDispatch } from "react-redux";
-import { closeOffCanvas } from "../../Redux/slices/globals";
+import { useDispatch, useSelector } from "react-redux";
+import { closeOffCanvas, toggleDarkMode } from "../../Redux/slices/globals";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
+import { useEffect, useState } from "react";
+import i18n from "../../i18n";
+import { useTranslation } from "react-i18next";
 const OffCanvas = () => {
-    const dispatch = useDispatch()
+  const [nowLanguage, setNowLanguage] = useState("en");
+  const { t } = useTranslation();
+  const { darkMode } = useSelector((store) => store.globals);
+  const dispatch = useDispatch();
+  const changeLanguages = () => {
+    if (i18n.language == "fa") {
+      i18n.changeLanguage("en");
+    } else {
+      i18n.changeLanguage("fa");
+    }
+  };
+
+  useEffect(() => {
+    if (i18n.language == "fa") {
+      setNowLanguage("en");
+    } else {
+      setNowLanguage("fa");
+    }
+  }, [i18n.language]);
+
   return (
     <>
-      <aside data-aos="fade-left" className="h-screen w-[300px] bg-white dark:bg-dark1 flex flex-col shadow-lg">
+      <aside
+        data-aos={i18n.language == "fa" ? "fade-left" : "fade-in"}
+        className="h-screen w-[300px] bg-white dark:bg-dark1 flex flex-col shadow-lg"
+      >
         <div className="flex justify-between p-3 items-center">
           <img src={logo} alt="" />
-          <IoClose size={40} className="dark:text-slate-100" onClick={()=>dispatch(closeOffCanvas())} />
+
+          <div className="flex gap-2">
+            <button
+              className="bg-slate-100 dark:bg-dark2 dark:hover:bg-slate-600 size-10 flex items-center justify-center rounded-md hover:bg-slate-200 "
+              onClick={() => dispatch(toggleDarkMode())}
+            >
+              {darkMode ? (
+                <MdOutlineLightMode size={25} className="dark:text-slate-100" />
+              ) : (
+                <MdOutlineDarkMode size={25} />
+              )}
+            </button>
+            <button
+              className="bg-slate-100 size-10 flex items-center justify-center rounded-md hover:bg-slate-200 dark:bg-dark2 dark:text-slate-100"
+              onClick={changeLanguages}
+            >
+              {nowLanguage}
+            </button>
+            <IoClose
+              size={40}
+              className="dark:text-slate-100"
+              onClick={() => dispatch(closeOffCanvas())}
+            />
+          </div>
         </div>
         <ul className="p-4 flex flex-col flex-1 dark:text-slate-100 divide-y-2">
           <li className="h-12 flex items-center">
-            <Link to="/Redux-App/">صفحه نخست</Link>
+            <Link to="/Redux-App/home"> {t("menu.home")}</Link>
           </li>
           <li className="h-12 flex items-center">
-            <Link to="/Redux-App/courses">دوره ها</Link>
+            <Link to="/Redux-App/courses"> {t("menu.courses")}</Link>
           </li>
           <li className="h-12 flex items-center">
-            <Link to="/Redux-App/articles">مقالات</Link>
+            <Link to="/Redux-App/articles">{t("menu.articles")}</Link>
           </li>
           <li className="h-12 flex items-center">
-            <Link to="/Redux-App/about">درباره ما</Link>
+            <Link to="/Redux-App/about"> {t("menu.about")}</Link>
           </li>
           <li className="h-12 flex items-center">
-            <Link to="/Redux-App/contact">تماس با ما</Link>
+            <Link to="/Redux-App/contact"> {t("menu.contact")} </Link>
           </li>
         </ul>
-        <Button gradientDuoTone="purpleToBlue" className="m-5">ورود/ثبت نام</Button>
+        <Button gradientDuoTone="purpleToBlue" className="m-5">
+          ورود/ثبت نام
+        </Button>
       </aside>
     </>
   );

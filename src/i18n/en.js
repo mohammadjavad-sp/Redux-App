@@ -1,4 +1,12 @@
 const en = {
+  menu: {
+    home: "home",
+    courses: "courses",
+    articles: "articles",
+    about: "about us",
+    contact: "contact us",
+    login:"login"
+  },
   footer: {
     phone: "phone",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis sequi laboriosam explicabo sapiente! Adipisci excepturi nam libero ",
@@ -70,6 +78,20 @@ const en = {
   //coursesPage
 
   myCourses: "my courses",
+  titles: "educational titles",
+  filters: {
+    search: "Search between all courses",
+    preSales: "Pre-sale",
+    allCourses: "all Courses",
+    frontend: "frontend Courses",
+    python: "python Courses",
+  },
+  sorts: {
+    text: "Sort by:",
+    allCourses: "all courses",
+    cheapest: "cheapest",
+    expensivest: "expensivest",
+  },
 
   //aboutPage
 
@@ -95,6 +117,31 @@ const en = {
   fooCopyRight1: "All material and intellectual rights of the site belong to",
   fooCopyRight2: "SP ",
   fooCopyRight3: "and any copying is prosecuted.",
+
+  //contactPage
+  isQuest: "If you have any questions!",
+  isQuestText: "We are waiting to hear your warm voice!",
+  ContactUsForm: "Contact us form",
+  ContactUsText: "We look forward to hearing from you!",
+  formName: "your name",
+  formEmail: "your email",
+  formSubject: "subject",
+  formMessage: "Your message (optional)",
+  formBtn: "submit",
+  FAQ: {
+    faqTitr: "Frequently asked questions of customers",
+    faq1: "Frequent question one",
+    faq2: "Frequent question two",
+    faq3: "Frequent question three",
+    faq4: "Frequent question four",
+    faqText:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus molestiae nam suscipit commodi eaque",
+  },
+  offerTitr: "Find out about our special offers faster!",
+  offerText: "Get our special offers and discounts before everyone else.",
+  offerName: "name & family",
+  offerEmail: "email address",
+  offerBtn: "send",
 };
 
 export default en;

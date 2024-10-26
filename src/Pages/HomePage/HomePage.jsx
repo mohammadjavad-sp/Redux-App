@@ -69,7 +69,7 @@ const HomePage = () => {
                 <span
                   className={`font-yekanN ${
                     i18next.language == "en" &&
-                    "font-sans font-bold translate-y-[-2px] ml-1"
+                    "font-sans font-bold ml-1"
                   }`}
                 >
                   {t("year")}
@@ -77,14 +77,14 @@ const HomePage = () => {
                 <img src={emoji} className="size-4 mr-1" />
               </p>
             </div>
-            <h1 className="lg:text-[45px] text-[30px] font-pinarEB text-rang1 dark:text-slate-200">
+            <h1 className="lg:text-[45px] text-[30px] font-pinarEB text-rang1 dark:text-slate-200 text-center lg:text-start">
               {t("siteSlogen")}
             </h1>
-            <p className="lg:text-[17px] text-[14px] text-[#9a9fa7] leading-[30px]">
+            <p className="lg:text-[17px] text-[14px] text-[#9a9fa7] text-center lg:text-start leading-[30px]">
               {t("siteSlogen2")}
             </p>
             <div
-              className={`flex flex-col lg:flex-row items-center justify-between lg:w-[468px] lg:h-[120px] lg:bg-[#EBECEE] dark:bg-dark2 rounded-xl lg:p-5 gap-5 lg:gap-0 ${
+              className={`flex flex-col sm:flex-row items-center justify-between sm:w-[468px] px-10 py-5 sm:h-[120px] lg:bg-[#EBECEE] dark:bg-dark2 rounded-xl lg:p-5 gap-7 lg:gap-0 ${
                 i18next.language == "en" && "rtl"
               }`}
             >
@@ -149,7 +149,7 @@ const HomePage = () => {
       <ReviewsSwiper />
 
       <section className="bg-[#F4F5F7] dark:bg-dark3 text-center lg:py-20 py-10">
-        <p className="font-yekanEB text-[28px] text-[#2A2D53] dark:text-slate-100">
+        <p className="font-yekanEB md:text-[28px] text-[22px] text-[#2A2D53] dark:text-slate-100 ">
           {t("learning.titr")}
         </p>
         <p className="text-[#2A2D53] dark:text-slate-300 mt-3">
@@ -286,12 +286,12 @@ const HomePage = () => {
               <input
                 type="text"
                 placeholder={t("timer.name")}
-                className="bg-transparent text-[10px] sm:text-[16px] border-0 dark:text-white text-black w-[40%] !ring-0"
+                className="bg-transparent text-[12px] sm:text-[16px] border-0 dark:text-white text-black w-[40%] !ring-0"
               />
               <input
                 type="text"
                 placeholder={t("timer.email")}
-                className="bg-transparent text-[10px] sm:text-[16px] border-0 text-black dark:text-white w-[40%] !ring-0"
+                className="bg-transparent text-[12px] sm:text-[16px] border-0 text-black dark:text-white w-[40%] !ring-0"
               />
               <Button
                 color="failure"

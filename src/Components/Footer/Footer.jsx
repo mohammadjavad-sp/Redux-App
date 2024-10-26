@@ -53,7 +53,7 @@ const Footer = () => {
               <img src={logo} className="w-20 mx-auto lg:mx-0 mb-5" />
               <p
                 className={`lg:pl-16 text-justify leading-[30px] dark:text-slate-200 ${
-                  i18next.language == "en" && "lg:pl-0 pr-20"
+                  i18next.language == "en" && "lg:pl-0 lg:pr-20"
                 }`}
               >
                 {t("footer.text")}

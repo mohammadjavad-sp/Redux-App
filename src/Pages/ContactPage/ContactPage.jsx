@@ -10,20 +10,31 @@ import Acordion from "../../Components/Accordion/Accordion";
 import styles from "./ContactPage.module.css";
 import Footer from "../../Components/Footer/Footer";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 const ContactPage = () => {
+  const { t } = useTranslation();
   const { darkMode } = useSelector((store) => store.globals);
   return (
     <>
       <header className="bg-[#1C1732] lg:pt-20 pt-7 ">
-        <div className="flex items-center flex-col lg:flex-row w-[70%] mx-auto justify-between">
+        <div
+          className={`flex items-center flex-col lg:flex-row w-[70%] mx-auto justify-between ${
+            i18next.language == "en" && "ltr"
+          }`}
+        >
           <div className="text-center leading-[50px]">
             <p className="md:text-[35px] text-[25px] text-[#F56913]">
-              اگر سوالی دارید!
+              {t("isQuest")}
             </p>
             <p className="md:text-[24px] text-[16px] text-white">
-              منتظر شنیدن صدای گرم شما هستیم!
+              {t("isQuestText")}
             </p>
-            <p className="text-[30px] text-[#FE02FF] font-yekanN">
+            <p
+              className={`text-[30px] text-[#FE02FF] font-yekanN ${
+                i18next.language == "en" && "!font-sans font-bold"
+              }`}
+            >
               09012345678
             </p>
           </div>
@@ -39,20 +50,32 @@ const ContactPage = () => {
       </header>
 
       <section className="bg-white dark:bg-dark1 translate-y-[-1px] flex flex-col items-center lg:py-20 pt-10 mx-auto">
-        <div className="relative flex flex-col items-center px-5">
+        <div
+          className={`relative flex flex-col items-center px-5 ${
+            i18next.language == "en" && "ltr"
+          }`}
+        >
           <img src={shape} className="w-[300px]" />
-          <h2 className="absolute top-4 lg:right-[245px] text-[23px] dark:text-slate-100">
-            فرم تماس با ما
+          <h2
+            className={`absolute top-4 lg:right-[245px] text-[23px] dark:text-slate-100 ${
+              i18next.language == "en" && "lg:right-48"
+            }`}
+          >
+            {t("ContactUsForm")}
           </h2>
           <p className="text-[#DD7600] mt-5 lg:text-[30px] text-[20px] text-center">
-            مشتاقانه منتظر شنیدن صدای گرم شما هستیم!
+            {t("ContactUsText")}
           </p>
         </div>
-        <div className="lg:py-10 py-5 w-[88%] mx-auto">
-          <div className="flex w-full flex-col gap-4">
+        <div
+          className={`lg:py-10 py-5 w-[88%] mx-auto ${
+            i18next.language == "en" && "ltr"
+          }`}
+        >
+          <div className={`flex w-full flex-col gap-4`}>
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="small" value="نام شما" />
+                <Label htmlFor="small" value={t("formName")} />
               </div>
               <TextInput
                 id="small"
@@ -63,19 +86,19 @@ const ContactPage = () => {
             </div>
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="base" value="ایمیل شما" />
+                <Label htmlFor="base" value={t("formEmail")} />
               </div>
               <TextInput id="base" type="text" sizing="md" />
             </div>
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="base" value="موضوع" />
+                <Label htmlFor="base" value={t("formSubject")} />
               </div>
               <TextInput id="base" type="text" sizing="md" />
             </div>
             <div>
               <div className="mb-2 block">
-                <Label htmlFor="large" value="پیغام شما (اختیاری)" />
+                <Label htmlFor="large" value={t("formMessage")} />
               </div>
               <textarea
                 name=""
@@ -84,14 +107,18 @@ const ContactPage = () => {
               ></textarea>
             </div>
           </div>
-          <Button color="purple" className="mt-5 px-10">
-            ثبت
+          <Button color="purple" className={`mt-5 px-10`}>
+            {t("formBtn")}
           </Button>
         </div>
       </section>
 
       <section className="bg-white dark:bg-dark1">
-        <div className="flex items-start flex-col lg:flex-row w-[88%] justify-between mx-auto gap-10">
+        <div
+          className={`flex items-start flex-col lg:flex-row w-[88%] justify-between mx-auto gap-10 ${
+            i18next.language == "en" && "ltr"
+          }`}
+        >
           <div className="lg:w-[50%]">
             <img src={quest1} alt="" />
           </div>
@@ -102,7 +129,7 @@ const ContactPage = () => {
             />
             <div>
               <p className="mt-16 text-red-500 text-xl mb-4">
-                سوالات متداول مشتریان
+                {t("FAQ.faqTitr")}
               </p>
               <Acordion />
             </div>
@@ -112,30 +139,34 @@ const ContactPage = () => {
 
       <div className="lg:pt-24 pt-14 bg-white dark:bg-dark1">
         <div
-          className={`${styles.khabarName} w-full pt-16 pb-10 flex flex-col items-center justify-center px-5`}
+          className={`${
+            styles.khabarName
+          } w-full pt-16 pb-10 flex flex-col items-center justify-center px-5 ${
+            i18next.language == "en" && "ltr"
+          }`}
         >
           <p className="text-[#FF9F07] font-yekanEB text-[20px] text-center">
-            از پیشنهادات ویژه ما سریع تر با خبر شوید!
+            {t("offerTitr")}
           </p>
           <p className="text-white text-[16px] mt-3 text-center">
-            پیشنهادات خاص و تخفیف های ما را زودتر از بقیه دریافت کنید.
+            {t("offerText")}
           </p>
-          <div className="flex rounded-full mt-10 bg-slate-500/10 p-2">
+          <div className="flex rounded-full justify-between mt-10 bg-slate-500/10 p-2">
             <input
               type="text"
-              placeholder="نام و نام خانوادگی"
-              className="bg-transparent text-[10px] sm:text-[16px] border-0 text-white w-[40%] !ring-0"
+              placeholder={t("offerName")}
+              className="bg-transparent text-[12px] sm:text-[16px] border-0 text-white w-[40%] !ring-0"
             />
             <input
               type="email"
-              placeholder="آدرس ایمیل"
-              className="bg-transparent text-[10px] sm:text-[16px] border-0 text-white w-[40%] !ring-0"
+              placeholder={t("offerEmail")}
+              className="bg-transparent text-[12px] sm:text-[16px] border-0 text-white w-[40%] !ring-0"
             />
             <Button
               color="failure"
               className="w-[60px] h-[60px] rounded-full flex justify-center items-center"
             >
-              ارسال
+              {t("offerBtn")}
             </Button>
           </div>
         </div>

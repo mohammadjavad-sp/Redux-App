@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { t } from "i18next";
 
 export const fetchCourses = createAsyncThunk(
   "courses/fetchCoursesStatus",
@@ -73,14 +74,14 @@ export const coursesSlice = createSlice({
       state.allCourses = preSaleCourses;
     });
     builder.addCase(fetchCoursesByCategory.fulfilled, (state, action) => {
-      if (action.meta.arg == "همه دوره ها") {
+      if (action.meta.arg == t("filters.allCourses")) {
         state.allCourses = action.payload;
-      } else if (action.meta.arg == "فرانت اند") {
+      } else if (action.meta.arg == t("filters.frontend")) {
         const frontCourses = action.payload.filter(
           (items) => items.category == "frontend"
         );
         state.allCourses = frontCourses;
-      } else if (action.meta.arg == "پایتون") {
+      } else if (action.meta.arg == t("filters.python")) {
         const backCourses = action.payload.filter(
           (items) => items.category == "python"
         );
