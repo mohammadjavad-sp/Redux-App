@@ -16,6 +16,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import CartPage from "./Pages/CartPage/CartPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
+import ArticlePage from "./Pages/ArticlesPage/ArticlePage";
+import AddArticle from "./Pages/ArticlesPage/AddArticle";
+import EditArticle from "./Pages/ArticlesPage/EditArticle";
 AOS.init();
 function App() {
   const { darkMode } = useSelector((store) => store.globals);
@@ -42,6 +45,12 @@ function App() {
         <Route path="/Redux-App/courses" element={<CoursesPage />} />
         <Route path="/Redux-App/courses/:id" element={<CoursePage />} />
         <Route path="/Redux-App/articles" element={<ArticlesPage />} />
+        <Route path="/Redux-App/articles/addArticle" element={<AddArticle />} />
+        <Route path="/Redux-App/articles/:id" element={<ArticlePage />} />
+        <Route
+          path="/Redux-App/articles/editArticle/:id"
+          element={<EditArticle />}
+        />
         <Route path="/Redux-App/about" element={<AboutPage />} />
         <Route path="/Redux-App/contact" element={<ContactPage />} />
         <Route path="/Redux-App/cart" element={<CartPage />} />

@@ -1,28 +1,94 @@
 {
-    "articles":[
-      {
-        "id":1,
-        "title":"چگونه برنامه نویس بشم؟",
-        "description":"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
-        "writter":"محمدجواد صدیق پور",
-        "readingTime":12,
-        "category":"برنامه نویسی"
-      },
-      {
-        "id":2,
-        "title":"بررسی دلایل افزایش طلاق در سال های اخیر",
-        "description":"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
-        "writter":"علی آقازاده",
-        "readingTime":18,
-        "category":"اجتماعی"
-      },
-      {
-        "id":3,
-        "title":"بررسی اجمالی آیفون 16 پرومکس",
-        "description":"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
-        "writter":"پدرام آذینی",
-        "readingTime":9,
-        "category":"تکنولوژی"
-      }
-      ]
-  }
+  "articles": [
+    {
+      "id": 1,
+      "title": "چگونه برنامه نویس بشم؟",
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "writter": "محمدجواد صدیق پور",
+      "readingTime": 12,
+      "category": "برنامه نویسی",
+      "image": "https://bairesdev.mo.cloudinary.net/blog/2022/01/programming-languages-1.jpg?tx=w_1920,q_auto"
+    },
+    {
+      "id": 2,
+      "title": "بررسی دلایل افزایش طلاق در سال های اخیر",
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "writter": "پویا هراتی زاده",
+      "readingTime": 18,
+      "category": "اجتماعی",
+      "image": "https://hellodivorce.com/hubfs/Used%20Blog%20Images/women-taking-off-ring.jpg"
+    },
+    {
+      "id": 3,
+      "title": "بررسی اجمالی آیفون 16 پرومکس",
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "writter": "پدرام آذینی",
+      "readingTime": 9,
+      "category": "تکنولوژی",
+      "image": "https://img.i-scmp.com/cdn-cgi/image/fit=contain,width=1024,format=auto/sites/default/files/d8/images/canvas/2024/09/18/1f7e5cd5-9033-4ac5-8218-ce29b54050a4_6b1b523a.jpg"
+    },
+    {
+      "id": 4,
+      "title": "ورشکستگی آبی ایران بهای گزاف عدم اصلاح الگوی کشت",
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "writter": "محمدجواد صدیق پور",
+      "readingTime": 14,
+      "category": "اجتماعی",
+      "image": "https://img.freepik.com/premium-photo/rusty-water-pump-with-words-water-bottom_1143998-14444.jpg?semt=ais_hybrid"
+    },
+    {
+      "id": 5,
+      "title": "محبوب ترین زبان های برنامه نویسی در ایران",
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "writter": "پدرام آذینی",
+      "readingTime": 11,
+      "category": "برنامه نویسی",
+      "image": "https://www.programmerszone.ae/wp-content/uploads/2021/10/programming-evolution.jpg"
+    },
+    {
+      "id": 6,
+      "title": "تقدیر از برترین استارت‌آپ‌های حوزه فناوری نانو",
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "writter": "پویا هراتی زاده",
+      "readingTime": 30,
+      "category": "تکنولوژی",
+      "image": "https://assets.thehansindia.com/h-upload/2021/07/31/1600x960_1092805-tech.webp"
+    },
+    {
+      "id": 7,
+      "title": "یوتیوبری خلاق فضای ذخیره‌سازی قابل‌ارتقای SSD برای مک‌بوک تولید کرد",
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "writter": "محمدجواد صدیق پور",
+      "readingTime": 7,
+      "category": "تکنولوژی",
+      "image": "https://cdn.prod.website-files.com/6344c9cef89d6f2270a38908/661468c7a2bf805cde3d6857_What%20Are%20High%20Level%20Programming%20Languages%20Types%20and%20Uses.webp"
+    },
+    {
+      "id": 8,
+      "title": "مقایسه درآمد برنامه نویسان در کشورهای مختلف",
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "writter": "پدرام آذینی",
+      "readingTime": 19,
+      "category": "برنامه نویسی",
+      "image": "https://img.freepik.com/free-photo/programming-background-with-person-working-with-codes-computer_23-2150010128.jpg?semt=ais_hybrid"
+    },
+    {
+      "id": 9,
+      "title": "بزرگ‌ترین گربه‌سان ایران بعد از ۶۵ سال به کشور برگشته است؟",
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "writter": "پدرام آذینی",
+      "readingTime": 27,
+      "category": "اجتماعی",
+      "image": "https://static.vecteezy.com/system/resources/thumbnails/046/255/646/small_2x/angry-tiger-close-up-portrait-of-animal-with-beautiful-mountain-free-photo.jpg"
+    },
+    {
+      "id": 10,
+      "title": "چرا هوش مصنوعی تبدیل به یک ابزار ضروری برای برنامه نویسان شده است؟",
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "writter": "پویا هراتی زاده",
+      "readingTime": 34,
+      "category": "برنامه نویسی",
+      "image": "https://www.springboard.com/blog/wp-content/uploads/2022/09/can-you-get-a-programming-job-without-a-degree.jpg"
+    }
+  ]
+}
