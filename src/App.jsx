@@ -19,6 +19,8 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import ArticlePage from "./Pages/ArticlesPage/ArticlePage";
 import AddArticle from "./Pages/ArticlesPage/AddArticle";
 import EditArticle from "./Pages/ArticlesPage/EditArticle";
+import PanelPage from "./Pages/PanelPage/PanelPage";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 AOS.init();
 function App() {
   const { darkMode } = useSelector((store) => store.globals);
@@ -55,6 +57,15 @@ function App() {
         <Route path="/Redux-App/contact" element={<ContactPage />} />
         <Route path="/Redux-App/cart" element={<CartPage />} />
         <Route path="/Redux-App/login" element={<LoginPage />} />
+
+        <Route
+          path="/Redux-App/panel"
+          element={
+            <PrivateRoute>
+              <PanelPage />
+            </PrivateRoute>
+          }
+        />
       </Routes>
       <Support />
       <ReturnToTop />

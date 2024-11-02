@@ -1,7 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/images/logoipsum-332.svg";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import logo from "../../assets/images/logo.png";
 import styles from "./Menu.module.css";
-import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
+import {
+  MdOutlineDarkMode,
+  MdOutlineDashboard,
+  MdOutlineLightMode,
+} from "react-icons/md";
 import { HiMenuAlt2, HiMenuAlt3 } from "react-icons/hi";
 import OffCanvas from "./OffCanvas";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,14 +18,23 @@ import { useEffect, useState } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 import i18n from "../../i18n";
 import { useTranslation } from "react-i18next";
+import { Avatar, Dropdown } from "flowbite-react";
+import { logout } from "../../Redux/slices/login";
+import { IoMdExit } from "react-icons/io";
 
 const Menu = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [nowLanguage, setNowLanguage] = useState("fa");
+
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { offCanvas, darkMode } = useSelector((store) => store.globals);
+  const { isAuthenticated, user, picture } = useSelector(
+    (store) => store.login
+  );
+
   if (offCanvas) {
     document.body.style.overflow = "hidden";
   } else {
@@ -56,6 +69,11 @@ const Menu = () => {
     }
   };
 
+  const userLogout = () => {
+    dispatch(logout());
+    navigate("/Redux-App/home");
+  };
+
   return (
     <>
       <nav
@@ -81,7 +99,7 @@ const Menu = () => {
             )}
           </span>
           <div className="flex lg:flex-1">
-            <img src={logo} alt="" />
+            <img src={logo} className="w-12" />
             <ul className="justify-center items-center gap-10 hidden lg:flex lg:mx-14 dark:text-white">
               <li className="hover:text-teal-500 dark:hover:text-teal-400">
                 <NavLink to="/Redux-App/home">{t("menu.home")}</NavLink>
@@ -134,11 +152,60 @@ const Menu = () => {
                 {nowLanguage}
               </button>
             </div>
-            <button className={`${styles.button} hidden lg:block`}>
-              <Link to="/Redux-App/login">
-              {t("menu.login")}
-              </Link>
-            </button>
+            {isAuthenticated ? (
+              <Dropdown
+                label={
+                  picture ? (
+                    <img
+                      src={picture}
+                      className="w-10 rounded-full"
+                      referrerPolicy="no-referrer"
+                      crossOrigin="anonymous"
+                    />
+                  ) : (
+                    <Avatar rounded />
+                  )
+                }
+                arrowIcon={false}
+                inline
+                className="w-[200px] mt-1 rounded-xl"
+              >
+                <Dropdown.Header>
+                  <span className="block text-sm text-center ">
+                    {t("menu.hi")} {user} :))
+                  </span>
+                </Dropdown.Header>
+                <Dropdown.Item className="p-0 !bg-transparent">
+                  <Link
+                    to="/Redux-App/panel"
+                    className=" w-full py-2 px-4 text-start hover:bg-gray-100 flex items-center gap-1"
+                  >
+                    <MdOutlineDashboard
+                      size={20}
+                      className="translate-y-[-1px]"
+                    />
+                    {t("menu.dashboard")}
+                  </Link>
+                </Dropdown.Item>
+
+                <Dropdown.Divider />
+                <Dropdown.Item
+                  onClick={userLogout}
+                  className="flex items-center gap-1"
+                >
+                  <IoMdExit size={20} className="translate-y-[-1px]" />
+                  {t("menu.exit")}
+                </Dropdown.Item>
+              </Dropdown>
+            ) : (
+              <button
+                className={`${styles.button} hidden lg:block h-[40px] self-center`}
+              >
+                <Link to="/Redux-App/login" className="block">
+                  {t("menu.login")}
+                </Link>
+              </button>
+            )}
           </div>
         </div>
       </nav>

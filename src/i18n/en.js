@@ -5,7 +5,10 @@ const en = {
     articles: "articles",
     about: "about us",
     contact: "contact us",
-    login:"login"
+    login: "login",
+    hi: "hi",
+    dashboard: "dashboard",
+    exit: "exit",
   },
   footer: {
     phone: "phone",
@@ -142,6 +145,40 @@ const en = {
   offerName: "name & family",
   offerEmail: "email address",
   offerBtn: "send",
+
+  //loginPage
+
+  login: {
+    titr: "welcome to SP code :))",
+    name: "your name",
+    pass: "password",
+    login: "login",
+    logGoogle: "login with google",
+  },
+
+  //panelPage
+
+  panel: {
+    dashboard: "dashboard",
+    courses: "my courses",
+    tickets: "tickets",
+    info: "account info",
+    exit: "exit",
+    titr: " ; welcome",
+    notif: "notifs",
+    notifTxt: "There is no notification to display",
+    pays: "total payments",
+    paysTxt: "0 dollar",
+    courseTxt: "0 course",
+    allTickets: "total tickets",
+    ticket: "0 ticket",
+    balance: "Account balance",
+    balanceTxt: "0 dollar",
+    recentT: "recent tickets",
+    recentQ: "recent questions",
+    recentTT: "You have not sent a ticket yet!",
+    recentQT: "You have not sent a question yet!",
+  },
 };
 
 export default en;

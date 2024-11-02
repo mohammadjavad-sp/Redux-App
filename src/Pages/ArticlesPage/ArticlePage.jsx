@@ -30,6 +30,7 @@ const ArticlePage = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "آره حذفش کن!",
       cancelButtonText: "نه حذف نکن",
+      
     });
     if (result.isConfirmed) {
       try {

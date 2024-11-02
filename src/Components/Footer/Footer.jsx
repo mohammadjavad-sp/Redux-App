@@ -5,7 +5,7 @@ import {
   FaWhatsapp,
   FaXTwitter,
 } from "react-icons/fa6";
-import logo from "../../assets/images/logoipsum-332.svg";
+import logo from "../../assets/images/logo.png";
 import enamad from "../../assets/images/footer/enamad.png";
 import samandehi from "../../assets/images/footer/samandehi.png";
 import i18next from "i18next";
@@ -50,7 +50,7 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row w-[88%] mx-auto items-stretch lg:pt-6">
           <div className="lg:w-4/12 pt-10 flex flex-col justify-between w-full">
             <div>
-              <img src={logo} className="w-20 mx-auto lg:mx-0 mb-5" />
+              <img src={logo} className="w-16 mx-auto lg:mx-0 mb-5" />
               <p
                 className={`lg:pl-16 text-justify leading-[30px] dark:text-slate-200 ${
                   i18next.language == "en" && "lg:pl-0 lg:pr-20"
