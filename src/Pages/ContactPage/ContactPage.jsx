@@ -12,9 +12,16 @@ import Footer from "../../Components/Footer/Footer";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import { useState } from "react";
 const ContactPage = () => {
   const { t } = useTranslation();
   const { darkMode } = useSelector((store) => store.globals);
+  const [name , setName] = useState("")
+  const [email , setEmail] = useState("")
+  const inputsHandler=()=>{
+    setName("")
+    setEmail("")
+  }
   return (
     <>
       <header className="bg-[#1C1732] lg:pt-20 pt-7 ">
@@ -156,15 +163,20 @@ const ContactPage = () => {
               type="text"
               placeholder={t("offerName")}
               className="bg-transparent text-[12px] sm:text-[16px] border-0 text-white w-[40%] !ring-0"
+              onChange={(e)=>setName(e.target.value)}
+              value={name}
             />
             <input
               type="email"
               placeholder={t("offerEmail")}
               className="bg-transparent text-[12px] sm:text-[16px] border-0 text-white w-[40%] !ring-0"
+              onChange={(e)=>setEmail(e.target.value)}
+              value={email}
             />
             <Button
               color="failure"
               className="w-[60px] h-[60px] rounded-full flex justify-center items-center"
+              onClick={inputsHandler}
             >
               {t("offerBtn")}
             </Button>

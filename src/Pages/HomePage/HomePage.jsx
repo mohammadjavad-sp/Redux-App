@@ -25,8 +25,15 @@ import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import { useState } from "react";
 const HomePage = () => {
   const { t } = useTranslation();
+  const [name , setName] = useState("")
+  const [email , setEmail] = useState("")
+  const inputsHandler=()=>{
+    setName("")
+    setEmail("")
+  }
   return (
     <>
       <Toaster
@@ -287,17 +294,23 @@ const HomePage = () => {
                 type="text"
                 placeholder={t("timer.name")}
                 className="bg-transparent text-[12px] sm:text-[16px] border-0 dark:text-white text-black w-[40%] !ring-0"
+                onChange={(e)=>setName(e.target.value)}
+                value={name}
               />
               <input
-                type="text"
+                type="email"
                 placeholder={t("timer.email")}
                 className="bg-transparent text-[12px] sm:text-[16px] border-0 text-black dark:text-white w-[40%] !ring-0"
+                onChange={(e)=>setEmail(e.target.value)}
+                value={email}
               />
               <Button
                 color="failure"
                 className="w-[60px] h-[60px] rounded-md flex justify-center items-center"
+                onClick={inputsHandler}
               >
                 {t("timer.send")}
+                
               </Button>
             </div>
           </div>

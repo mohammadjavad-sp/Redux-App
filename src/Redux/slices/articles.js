@@ -34,10 +34,14 @@ export const fetchArticlesByCategory = createAsyncThunk(
 
 export const articlesSlice = createSlice({
   name: "articles",
-  initialState: { allArticles: [] },
+  initialState: { allArticles: [], loading: false },
   extraReducers: (builder) => {
     builder.addCase(fetchArticles.fulfilled, (state, action) => {
       state.allArticles = action.payload.record;
+      state.loading = false;
+    });
+    builder.addCase(fetchArticles.pending, (state) => {
+      state.loading = true;
     });
     builder.addCase(fetchArticlesByCategory.fulfilled, (state, action) => {
       state.allArticles = action.payload.record;

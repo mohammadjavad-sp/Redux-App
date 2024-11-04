@@ -14,9 +14,8 @@ const ArticleCard = ({ data }) => {
     <>
       <Card
         theme={customTheme}
-        className=""
-        imgAlt="Meaningful alt text for an image that is not purely decorative"
         imgSrc={data.image}
+        className="rtl"
       >
         <h5 className="text-lg font-bold tracking-tight text-rang1 dark:text-white h-14 line-clamp-2 hover:text-blue-600 duration-300">
           <Link  to={`/Redux-App/articles/${data.id}`}>
@@ -30,7 +29,7 @@ const ArticleCard = ({ data }) => {
           <MdOutlineCreate />
           {data.writter}
         </p>
-        <span className="">
+        <span>
           <Link
             className="flex gap-1 items-center text-xs text-blue-600 font-bold"
             to={`/Redux-App/articles/${data.id}`}

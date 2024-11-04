@@ -53,8 +53,8 @@ const PanelPage = () => {
           </ul>
         </div>
         <div className="lg:w-[80%] w-full bg-[#F3F4F6] dark:bg-dark2 lg:rounded-3xl p-10">
-          <div className="flex justify-between items-center sm:text-2xl text-lg">
-            <div className="flex items-center gap-5">
+          <div className="flex flex-col md:flex-row justify-between items-center sm:text-2xl text-xl">
+            <div className="flex flex-col md:flex-row items-center gap-5">
               {picture ? (
                 <img
                   src={picture}
@@ -72,7 +72,7 @@ const PanelPage = () => {
               )}
 
               <p
-                className={`dark:text-slate-100 ${
+                className={`dark:text-slate-100 ml-3 ${
                   i18n.language == "en" && "rtl"
                 }`}
               >
@@ -84,12 +84,12 @@ const PanelPage = () => {
                 label={
                   <FaRegBell
                     size={25}
-                    className="bg-white dark:bg-dark1 dark:text-slate-100 rounded-full size-12 p-3"
+                    className="bg-white dark:bg-dark1 dark:text-slate-100 rounded-full size-12 p-3 mt-4"
                   />
                 }
                 arrowIcon={false}
                 inline
-                className="md:w-[300px] w-[250px] mt-1 p-3 rounded-xl"
+                className="md:w-[300px] w-[250px] mt-1 p-3 rounded-xl mx-10 md:mx-0"
               >
                 <Dropdown.Header className="p-0 pb-2">
                   <span className="block text-xl">{t("panel.notif")}</span>

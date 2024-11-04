@@ -70,7 +70,7 @@ const fa = {
     send: "ارسال",
     day: "روز",
     hour: "ساعت",
-    minute: "دقیق",
+    minute: "دقیقه",
     second: "ثانیه",
   },
 
@@ -176,6 +176,43 @@ const fa = {
     recentTT: "تا به الان تیکتی ارسال نکرده‌اید!",
     recentQT: "تا به الان پرسشی ارسال نکرده‌اید!",
   },
+
+  //cartPage
+
+  emptyCart: "سبد خرید شما خالیست :(",
+
+  //articlesPage
+
+  myArticles:"مقالات ما",
+  create:"ساخت مقاله",
+  inputArticle:"نام نویسنده را وارد کنید",
+  articlesSorts:"مرتب سازی",
+  newest:"جدید ترین",
+  oldest:"قدیمی ترین",
+  shortest:"کوتاه ترین",
+  longest:"طولانی ترین",
+  categorys:"دسته بندی ها",
+  allArticles:"همه مقالات",
+  programming:"برنامه نویسی",
+  tech:"تکنولوژی",
+  social:"اجتماعی",
+  
+  // more articlesPage
+
+  title:"عنوان مقاله",
+  title2:"عنوان مقاله را وارد کنید",
+  desc:"توضیح کوتاه",
+  desc2:"یک توضیح کوتاه در مورد مقاله وارد کنید",
+  writter:"نویسنده مقاله",
+  writter2:"نویسنده مقاله را وارد کنید",
+  subject:"موضوع مقاله",
+  subject2:"موضوع مقاله را وارد کنید",
+  img:"عکس مقاله",
+  img2:"لینک عکس مقاله را وارد کنید",
+  readingTime:"مدت زمان خواندن",
+  readingTime2:"مدت زمان خواندن",
+  articleBtn:"ساخت مقاله",
+  articleBtn2:"ویرایش مقاله",
 };
 
 export default fa;

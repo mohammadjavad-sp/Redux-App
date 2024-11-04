@@ -21,6 +21,7 @@ import {
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import { Link } from "react-router-dom";
 
 const AboutPage = () => {
   const { t } = useTranslation();
@@ -42,7 +43,9 @@ const AboutPage = () => {
           </p>
           <div className="flex gap-5">
             <Button size="md" className="bg-[#5BC91E]">
+              <Link to="/Redux-App/courses">
               {t("showCourses")}
+              </Link>
             </Button>
             <Button size="md" className="bg-[#FFFF00] text-black ">
               {t("Request")}

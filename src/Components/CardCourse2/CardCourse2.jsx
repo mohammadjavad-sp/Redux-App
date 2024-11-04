@@ -49,8 +49,7 @@ const CardCourse2 = ({ data, bgColor, lineClamp, text }) => {
     <>
       <Card
         theme={customTheme}
-        className={`xl:w-[32%] md:w-[48%] w-auto relative ${bgColor} rounded-xl p-0 shadow-none border-[#E2E3E5] `}
-        imgAlt="Meaningful alt text for an image that is not purely decorative"
+        className={`xl:w-[32%] md:w-[48%] w-auto relative ${bgColor} rounded-xl p-0 shadow-none border-[#E2E3E5] rtl`}
         imgSrc={data.image}
       >
         <div className="px-2 py-1 bg-white flex w-fit absolute top-5 rounded-lg font-yekanN text-xs text-[#D7AB0E] items-center gap-1">

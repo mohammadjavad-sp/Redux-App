@@ -4,6 +4,8 @@ import { apiKey } from "../../key";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 const AddArticle = () => {
   const [newArticle, setNewArticle] = useState({
@@ -17,6 +19,7 @@ const AddArticle = () => {
   });
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const navigate = useNavigate();
+  const {t} = useTranslation()
 
   useEffect(() => {
     const allFieldsFilled = Object.values(newArticle).every(
@@ -70,11 +73,11 @@ const AddArticle = () => {
   };
 
   return (
-    <div className="flex w-[50%] flex-col gap-4 mx-auto my-10">
+    <div className={`flex lg:w-[50%] w-[80%] flex-col gap-4 mx-auto my-10 ${i18next.language == "en" && "ltr"}`}>
       <div>
-        <Label htmlFor="title" value="عنوان مقاله" />
+        <Label htmlFor="title" value={t("title")} />
         <TextInput
-          placeholder="عنوان مقاله را وارد کنید"
+          placeholder={t("title2")}
           type="text"
           sizing="md"
           name="title"
@@ -82,9 +85,9 @@ const AddArticle = () => {
         />
       </div>
       <div>
-        <Label htmlFor="description" value="توضیح کوتاه" />
+        <Label htmlFor="description" value={t("desc")} />
         <TextInput
-          placeholder="یک توضیح کوتاه در مورد مقاله وارد کنید"
+          placeholder={t("desc2")}
           type="text"
           sizing="md"
           name="description"
@@ -92,9 +95,9 @@ const AddArticle = () => {
         />
       </div>
       <div>
-        <Label htmlFor="writter" value="نویسنده مقاله" />
+        <Label htmlFor="writter" value={t("writter")} />
         <TextInput
-          placeholder="نام نویسنده مقاله را وارد کنید"
+          placeholder={t("writter2")}
           type="text"
           sizing="md"
           name="writter"
@@ -102,9 +105,9 @@ const AddArticle = () => {
         />
       </div>
       <div>
-        <Label htmlFor="category" value="موضوع مقاله" />
+        <Label htmlFor="category" value={t("subject")} />
         <TextInput
-          placeholder="موضوع مقاله را وارد کنید"
+          placeholder={t("subject2")}
           type="text"
           sizing="md"
           name="category"
@@ -112,9 +115,9 @@ const AddArticle = () => {
         />
       </div>
       <div>
-        <Label htmlFor="image" value="عکس مقاله" />
+        <Label htmlFor="image" value={t("img")} />
         <TextInput
-          placeholder="لینک عکس مقاله را وارد کنید"
+          placeholder={t("img2")}
           type="text"
           sizing="md"
           name="image"
@@ -122,9 +125,9 @@ const AddArticle = () => {
         />
       </div>
       <div>
-        <Label htmlFor="readingTime" value="مدت زمان خواندن" />
+        <Label htmlFor="readingTime" value={t("readingTime")} />
         <TextInput
-          placeholder="مدت زمان خواندن"
+          placeholder={t("readingTime2")}
           type="number"
           sizing="md"
           name="readingTime"
@@ -137,7 +140,7 @@ const AddArticle = () => {
         gradientMonochrome="info"
         className="w-fit"
       >
-        ساخت مقاله
+        {t("articleBtn")}
       </Button>
     </div>
   );

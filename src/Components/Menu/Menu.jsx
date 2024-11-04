@@ -21,6 +21,7 @@ import { useTranslation } from "react-i18next";
 import { Avatar, Dropdown } from "flowbite-react";
 import { logout } from "../../Redux/slices/login";
 import { IoMdExit } from "react-icons/io";
+import { LuLogIn } from "react-icons/lu";
 
 const Menu = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -90,7 +91,7 @@ const Menu = () => {
             <OffCanvas />
           </div>
         )}
-        <div className="flex justify-between w-11/12 mx-auto">
+        <div className="flex justify-between items-center w-11/12 mx-auto">
           <span className="lg:hidden flex justify-center items-center bg-slate-100 size-10 rounded-md dark:bg-dark2 dark:text-slate-100">
             {i18n.language == "fa" ? (
               <HiMenuAlt3 size={30} onClick={() => dispatch(openOffCanvas())} />
@@ -99,7 +100,9 @@ const Menu = () => {
             )}
           </span>
           <div className="flex lg:flex-1">
+            <Link to="/Redux-App/home">
             <img src={logo} className="w-12" />
+            </Link>
             <ul className="justify-center items-center gap-10 hidden lg:flex lg:mx-14 dark:text-white">
               <li className="hover:text-teal-500 dark:hover:text-teal-400">
                 <NavLink to="/Redux-App/home">{t("menu.home")}</NavLink>
@@ -158,12 +161,12 @@ const Menu = () => {
                   picture ? (
                     <img
                       src={picture}
-                      className="w-10 rounded-full"
+                      className="w-10 lg:rounded-full rounded-md mr-2 lg:mr-0 "
                       referrerPolicy="no-referrer"
                       crossOrigin="anonymous"
                     />
                   ) : (
-                    <Avatar rounded />
+                    <Avatar rounded className="mr-2 lg:mr-0" />
                   )
                 }
                 arrowIcon={false}
@@ -203,6 +206,14 @@ const Menu = () => {
               >
                 <Link to="/Redux-App/login" className="block">
                   {t("menu.login")}
+                </Link>
+              </button>
+            )}
+
+            {!isAuthenticated && (
+              <button className="bg-slate-100 size-10 lg:hidden items-center justify-center rounded-md flex dark:bg-dark2 dark:text-slate-100 mr-2">
+                <Link to="/Redux-App/login">
+                  <LuLogIn size={25} />
                 </Link>
               </button>
             )}

@@ -28,7 +28,7 @@ const ReviewsSwiper = () => {
   ];
   return (
     <>
-      <div className={`w-full bg-[#F4F5F7] dark:bg-dark3 text-center `}>
+      <div className={`w-full bg-[#F4F5F7] dark:bg-dark3 text-center py-14 lg:py-0`}>
         <h2
           className={`text-[24px] text-[#2DA706] font-yekanEB ${
             i18next.language == "en" && "ltr"

@@ -1,13 +1,13 @@
 import { IoClose } from "react-icons/io5";
-import logo from "../../assets/images/logoipsum-332.svg";
-import { Link } from "react-router-dom";
-import { Button } from "flowbite-react";
+import logo from "../../assets/images/logo.png";
+import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { closeOffCanvas, toggleDarkMode } from "../../Redux/slices/globals";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { useEffect, useState } from "react";
 import i18n from "../../i18n";
 import { useTranslation } from "react-i18next";
+
 const OffCanvas = () => {
   const [nowLanguage, setNowLanguage] = useState("en");
   const { t } = useTranslation();
@@ -33,10 +33,10 @@ const OffCanvas = () => {
     <>
       <aside
         data-aos={i18n.language == "fa" ? "fade-left" : "fade-in"}
-        className="h-screen w-[300px] bg-white dark:bg-dark1 flex flex-col shadow-lg"
+        className="h-svh w-[300px] bg-white dark:bg-dark1 flex flex-col shadow-lg"
       >
         <div className="flex justify-between p-3 items-center">
-          <img src={logo} alt="" />
+          <img src={logo} className="w-12" />
 
           <div className="flex gap-2">
             <button
@@ -64,24 +64,21 @@ const OffCanvas = () => {
         </div>
         <ul className="p-4 flex flex-col flex-1 dark:text-slate-100 divide-y-2">
           <li className="h-12 flex items-center">
-            <Link to="/Redux-App/home"> {t("menu.home")}</Link>
+            <NavLink className="block w-full" to="/Redux-App/home"> {t("menu.home")}</NavLink>
           </li>
           <li className="h-12 flex items-center">
-            <Link to="/Redux-App/courses"> {t("menu.courses")}</Link>
+            <NavLink className="block w-full" to="/Redux-App/courses"> {t("menu.courses")}</NavLink>
           </li>
           <li className="h-12 flex items-center">
-            <Link to="/Redux-App/articles">{t("menu.articles")}</Link>
+            <NavLink className="block w-full" to="/Redux-App/articles">{t("menu.articles")}</NavLink>
           </li>
           <li className="h-12 flex items-center">
-            <Link to="/Redux-App/about"> {t("menu.about")}</Link>
+            <NavLink className="block w-full" to="/Redux-App/about"> {t("menu.about")}</NavLink>
           </li>
           <li className="h-12 flex items-center">
-            <Link to="/Redux-App/contact"> {t("menu.contact")} </Link>
+            <NavLink className="block w-full" to="/Redux-App/contact"> {t("menu.contact")} </NavLink>
           </li>
         </ul>
-        <Button gradientDuoTone="purpleToBlue" className="m-5">
-          ورود/ثبت نام
-        </Button>
       </aside>
     </>
   );

@@ -75,19 +75,19 @@ const ArticlePage = () => {
 
   return (
     <>
-      <section className="w-[88%] mx-auto flex justify-between my-10 gap-8">
-        <aside className="w-[30%]">
+      <section className="w-[88%] mx-auto flex flex-col lg:flex-row justify-between my-10 gap-8">
+        <aside className="xl:w-[30%] lg:w-[40%]">
           <div
             className={`${styles.articleCardContainer} dark:border-[1px] dark:border-slate-600`}
           >
             <div className={styles.cardHeader}>
               <img src={article.image} />
-              <h4 className="dark:text-white font-yekanEB text-[22px]">
+              <h4 className="dark:text-white font-yekanEB sm:text-[22px] text-lg">
                 {article.title}
               </h4>
             </div>
             <div
-              className={`${styles.cardBody} flex flex-col gap-3 mb-5 dark:text-slate-100`}
+              className={`${styles.cardBody} flex flex-col gap-3 mb-5 dark:text-slate-100 text-sm sm:text-base`}
             >
               <p className="flex gap-2 items-center">
                 <BsPencilSquare size="20px" />
@@ -123,7 +123,7 @@ const ArticlePage = () => {
             </div>
           </div>
         </aside>
-        <main className="w-[70%] text-justify dark:text-slate-100">
+        <main className="xl:w-[70%] lg:w-[60%] text-justify dark:text-slate-100">
           <p>
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
             استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در

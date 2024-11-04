@@ -80,7 +80,7 @@ const en = {
 
   //coursesPage
 
-  myCourses: "my courses",
+  myCourses: "our courses",
   titles: "educational titles",
   filters: {
     search: "Search between all courses",
@@ -179,6 +179,43 @@ const en = {
     recentTT: "You have not sent a ticket yet!",
     recentQT: "You have not sent a question yet!",
   },
+
+  //cartPage
+
+  emptyCart: "Your shopping cart is empty :(",
+
+  //articlesPage
+
+  myArticles: "our articles",
+  create: "create article",
+  inputArticle: "write the writter name",
+  articlesSorts: "sorting",
+  newest: "newest",
+  oldest: "oldest",
+  shortest: "shortest",
+  longest: "longest",
+  categorys: "categorys",
+  allArticles: "all articles",
+  programming: "programming",
+  tech: "tech",
+  social: "social",
+
+  // more articlesPage
+
+  title:"article title",
+  title2:"write the article title",
+  desc:"short description",
+  desc2:"write the short description for article",
+  writter:"article writter",
+  writter2:"write the article writter",
+  subject:"article subject",
+  subject2:"write the article subject",
+  img:"article image",
+  img2:"write the article image link",
+  readingTime:"reading time",
+  readingTime2:"write the reading time",
+  articleBtn:"create article",
+  articleBtn2:"edit article",
 };
 
 export default en;

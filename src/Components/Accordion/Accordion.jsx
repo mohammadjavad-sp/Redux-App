@@ -1,4 +1,4 @@
-import { Accordion, theme } from "flowbite-react";
+import { Accordion } from "flowbite-react";
 import { t } from "i18next";
 
 const Acordion = () => {
@@ -25,7 +25,7 @@ const Acordion = () => {
       {fakeContent.map((content) => (
         <Accordion
           style={{ boxShadow: " 0px 3px 18px -7px rgba(209,209,209,1)" }}
-          className="!flex flex-col !border-0 mb-1 !rounded-sm dark:!shadow-none dark:bg-dark2"
+          className="!flex flex-col !border-0 mb-1 !rounded-lg dark:!shadow-none dark:bg-dark2"
           collapseAll
         >
           <Accordion.Panel key={content.id} className="">

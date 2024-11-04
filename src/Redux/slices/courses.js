@@ -54,10 +54,14 @@ export const fetchCoursesBySort = createAsyncThunk(
 
 export const coursesSlice = createSlice({
   name: "courses",
-  initialState: { allCourses: [], coursesBySearch: [] },
+  initialState: { allCourses: [], coursesBySearch: [], loading: false },
   extraReducers: (builder) => {
     builder.addCase(fetchCourses.fulfilled, (state, action) => {
+      state.loading = false;
       state.allCourses = action.payload;
+    });
+    builder.addCase(fetchCourses.pending, (state, action) => {
+      state.loading = true;
     });
     builder.addCase(fetchCoursesBySearch.fulfilled, (state, action) => {
       const searchedCourses = action.payload.filter(
@@ -90,12 +94,12 @@ export const coursesSlice = createSlice({
     });
 
     builder.addCase(fetchCoursesBySort.fulfilled, (state, action) => {
-      if (action.meta.arg == "همه دوره ها") {
+      if (action.meta.arg == t("sorts.allCourses")) {
         state.allCourses = action.payload;
-      } else if (action.meta.arg == "ارزان ترین") {
+      } else if (action.meta.arg == t("sorts.cheapest")) {
         const cheapest = action.payload.sort((a, b) => a.price - b.price);
         state.allCourses = cheapest;
-      } else if (action.meta.arg == "گران ترین") {
+      } else if (action.meta.arg == t("sorts.expensivest")) {
         const expensive = action.payload.sort((a, b) => b.price - a.price);
         state.allCourses = expensive;
       }

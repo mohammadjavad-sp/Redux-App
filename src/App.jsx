@@ -7,7 +7,7 @@ import AboutPage from "./Pages/AboutPage/AboutPage";
 import ContactPage from "./Pages/ContactPage/ContactPage";
 import Menu from "./Components/Menu/Menu";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import CoursePage from "./Pages/CoursesPage/CoursePage";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import ReturnToTop from "./Components/ReturnToTop/ReturnToTop";
@@ -21,8 +21,11 @@ import AddArticle from "./Pages/ArticlesPage/AddArticle";
 import EditArticle from "./Pages/ArticlesPage/EditArticle";
 import PanelPage from "./Pages/PanelPage/PanelPage";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import PreLoader from "./Components/PreLoader/PreLoader";
+
 AOS.init();
 function App() {
+  const [loading, setLoading] = useState(true);
   const { darkMode } = useSelector((store) => store.globals);
   useEffect(() => {
     if (darkMode) {
@@ -34,7 +37,16 @@ function App() {
     }
   }, [darkMode]);
 
-  return (
+  useEffect(() => {
+    const handleLoad = () => setLoading(false);
+    window.addEventListener("load", handleLoad);
+
+    return () => window.removeEventListener("load", handleLoad);
+  }, []);
+
+  return loading ? (
+    <PreLoader />
+  ) : (
     <>
       <ScrollToTop />
       <Menu />

@@ -22,12 +22,14 @@ import SortMobile from "../../Components/Filters/SortMobile";
 import { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import Lottie from "lottie-react";
+import animation from "../../assets/images/animation/loading.json"; 
 
 const CoursesPage = () => {
   const { t } = useTranslation();
   const categorysContainer = useRef();
   const dispatch = useDispatch();
-  const { allCourses } = useSelector((store) => store.courses);
+  const { allCourses, loading } = useSelector((store) => store.courses);
   const { sortName } = useSelector((store) => store.filter);
 
   const [isChecked, setIsChecked] = useState(false);
@@ -217,14 +219,22 @@ const CoursesPage = () => {
               </div>
             </div>
             <div className=" w-full flex flex-wrap justify-between gap-4 md:mt-7 mt-5">
-              {allCourses?.slice(0, pagination).map((course) => (
-                <CardCourse2
-                  data={course}
-                  key={course.id}
-                  bgColor="bg-white"
-                  text={course.description}
-                />
-              ))}
+              {loading ? (
+                <div className="w-full flex items-center justify-center">
+                  <Lottie animationData={animation} />
+                </div>
+              ) : (
+                allCourses
+                  ?.slice(0, pagination)
+                  .map((course) => (
+                    <CardCourse2
+                      data={course}
+                      key={course.id}
+                      bgColor="bg-white"
+                      text={course.description}
+                    />
+                  ))
+              )}
             </div>
             {pagination < allCourses.length && (
               <Button
