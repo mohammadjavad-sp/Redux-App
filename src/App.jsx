@@ -41,7 +41,14 @@ function App() {
     const handleLoad = () => setLoading(false);
     window.addEventListener("load", handleLoad);
 
-    return () => window.removeEventListener("load", handleLoad);
+    const backupTimer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+      clearTimeout(backupTimer);
+    }
   }, []);
 
   return loading ? (
