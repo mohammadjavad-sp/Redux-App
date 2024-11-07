@@ -105,19 +105,19 @@ const Menu = () => {
             </Link>
             <ul className="justify-center items-center gap-10 hidden lg:flex lg:mx-14 dark:text-white">
               <li className="hover:text-teal-500 dark:hover:text-teal-400">
-                <NavLink to="/Redux-App/home">{t("menu.home")}</NavLink>
+                <NavLink to="/home">{t("menu.home")}</NavLink>
               </li>
               <li className="hover:text-teal-500 dark:hover:text-teal-400">
-                <NavLink to="/Redux-App/courses">{t("menu.courses")}</NavLink>
+                <NavLink to="/courses">{t("menu.courses")}</NavLink>
               </li>
               <li className="hover:text-teal-500 dark:hover:text-teal-400">
-                <NavLink to="/Redux-App/articles">{t("menu.articles")}</NavLink>
+                <NavLink to="/articles">{t("menu.articles")}</NavLink>
               </li>
               <li className="hover:text-teal-500 dark:hover:text-teal-400">
-                <NavLink to="/Redux-App/about"> {t("menu.about")}</NavLink>
+                <NavLink to="/about"> {t("menu.about")}</NavLink>
               </li>
               <li className="hover:text-teal-500 dark:hover:text-teal-400 ">
-                <NavLink to="/Redux-App/contact">{t("menu.contact")}</NavLink>
+                <NavLink to="/contact">{t("menu.contact")}</NavLink>
               </li>
             </ul>
           </div>
@@ -125,7 +125,7 @@ const Menu = () => {
           <div className="flex">
             <div className="flex items-center lg:mx-5 gap-3">
               <Link
-                to="/Redux-App/cart"
+                to="/cart"
                 className="bg-slate-100 dark:bg-dark2 dark:hover:bg-slate-600 size-10 flex items-center justify-center rounded-md hover:bg-slate-200 dark:text-slate-200 relative"
               >
                 <FaCartShopping size={22} />
@@ -180,7 +180,7 @@ const Menu = () => {
                 </Dropdown.Header>
                 <Dropdown.Item className="p-0 !bg-transparent">
                   <Link
-                    to="/Redux-App/panel"
+                    to="/panel"
                     className=" w-full py-2 px-4 text-start hover:bg-gray-100 flex items-center gap-1"
                   >
                     <MdOutlineDashboard

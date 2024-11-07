@@ -63,7 +63,7 @@ const CardCourse2 = ({ data, bgColor, lineClamp, text }) => {
         <h5
           className={`text-md font-yekanEB tracking-tight text-rang1 dark:text-slate-100 hover:text-[#35AD12] cursor-pointer duration-300 flex-1 ${lineClamp}`}
         >
-          <Link to={`/Redux-App/courses/${data.id}`}>{data.courseName}</Link>
+          <Link to={`/courses/${data.id}`}>{data.courseName}</Link>
         </h5>
         <p className="line-clamp-2 font-yekanM text-sm dark:text-slate-200">
           {text}
@@ -83,7 +83,7 @@ const CardCourse2 = ({ data, bgColor, lineClamp, text }) => {
           {data.teacher}
         </p>
         <Link
-          to={`/Redux-App/courses/${data.id}`}
+          to={`/courses/${data.id}`}
           className="flex items-center gap-1 text-blue-600 hover:text-blue-400 duration-200 text-sm font-yekanEB"
         >
           مشاهده اطلاعات دوره <IoIosArrowRoundBack size={25} />

@@ -48,7 +48,7 @@ function App() {
     return () => {
       window.removeEventListener("load", handleLoad);
       clearTimeout(backupTimer);
-    }
+    };
   }, []);
 
   return loading ? (
@@ -58,27 +58,20 @@ function App() {
       <ScrollToTop />
       <Menu />
       <Routes>
+        <Route path="/" element={<Navigate to="home" replace />} />
+        <Route path="home" element={<HomePage />} />
+        <Route path="courses" element={<CoursesPage />} />
+        <Route path="courses/:id" element={<CoursePage />} />
+        <Route path="articles" element={<ArticlesPage />} />
+        <Route path="articles/addArticle" element={<AddArticle />} />
+        <Route path="articles/:id" element={<ArticlePage />} />
+        <Route path="articles/editArticle/:id" element={<EditArticle />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="contact" element={<ContactPage />} />
+        <Route path="cart" element={<CartPage />} />
+        <Route path="login" element={<LoginPage />} />
         <Route
-          path="/Redux-App"
-          element={<Navigate to="/Redux-App/home" replace />}
-        />
-        <Route path="/Redux-App/home" element={<HomePage />} />
-        <Route path="/Redux-App/courses" element={<CoursesPage />} />
-        <Route path="/Redux-App/courses/:id" element={<CoursePage />} />
-        <Route path="/Redux-App/articles" element={<ArticlesPage />} />
-        <Route path="/Redux-App/articles/addArticle" element={<AddArticle />} />
-        <Route path="/Redux-App/articles/:id" element={<ArticlePage />} />
-        <Route
-          path="/Redux-App/articles/editArticle/:id"
-          element={<EditArticle />}
-        />
-        <Route path="/Redux-App/about" element={<AboutPage />} />
-        <Route path="/Redux-App/contact" element={<ContactPage />} />
-        <Route path="/Redux-App/cart" element={<CartPage />} />
-        <Route path="/Redux-App/login" element={<LoginPage />} />
-
-        <Route
-          path="/Redux-App/panel"
+          path="panel"
           element={
             <PrivateRoute>
               <PanelPage />

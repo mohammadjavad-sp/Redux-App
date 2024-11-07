@@ -18,7 +18,7 @@ const ArticleCard = ({ data }) => {
         className="rtl"
       >
         <h5 className="text-lg font-bold tracking-tight text-rang1 dark:text-white h-14 line-clamp-2 hover:text-blue-600 duration-300">
-          <Link  to={`/Redux-App/articles/${data.id}`}>
+          <Link  to={`/articles/${data.id}`}>
           {data.title}
           </Link>
         </h5>
@@ -32,7 +32,7 @@ const ArticleCard = ({ data }) => {
         <span>
           <Link
             className="flex gap-1 items-center text-xs text-blue-600 font-bold"
-            to={`/Redux-App/articles/${data.id}`}
+            to={`/articles/${data.id}`}
           >
             مشاهده بیشتر
             <FaLongArrowAltLeft />

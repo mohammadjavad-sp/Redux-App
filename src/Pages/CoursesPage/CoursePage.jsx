@@ -86,7 +86,7 @@ const CoursePage = () => {
       </div>
 
       <section className="bg-[#F3F4F6] dark:bg-dark1 pb-10 px-5">
-        <div className="flex flex-col bg-white lg:bg-transparent p-3 lg:p-0 rounded-xl lg:flex-row container justify-between lg:gap-10 gap-5">
+        <div className="flex flex-col bg-white dark:bg-dark2 lg:dark:bg-transparent lg:bg-transparent p-3 lg:p-0 rounded-xl lg:flex-row container justify-between lg:gap-10 gap-5">
           <div className="lg:w-[50%] order-2 lg:order-1 w-full flex flex-col justify-between">
             <div>
               <h1 className="font-yekanB lg:text-[28px] dark:text-slate-100 text-[20px]">
