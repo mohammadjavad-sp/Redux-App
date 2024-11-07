@@ -72,7 +72,7 @@ const Menu = () => {
 
   const userLogout = () => {
     dispatch(logout());
-    navigate("/Redux-App/home");
+    navigate("/home");
   };
 
   return (
@@ -100,7 +100,7 @@ const Menu = () => {
             )}
           </span>
           <div className="flex lg:flex-1">
-            <Link to="/Redux-App/home">
+            <Link to="/home">
             <img src={logo} className="w-12" />
             </Link>
             <ul className="justify-center items-center gap-10 hidden lg:flex lg:mx-14 dark:text-white">
@@ -204,7 +204,7 @@ const Menu = () => {
               <button
                 className={`${styles.button} hidden lg:block h-[40px] self-center`}
               >
-                <Link to="/Redux-App/login" className="block">
+                <Link to="/login" className="block">
                   {t("menu.login")}
                 </Link>
               </button>
@@ -212,7 +212,7 @@ const Menu = () => {
 
             {!isAuthenticated && (
               <button className="bg-slate-100 size-10 lg:hidden items-center justify-center rounded-md flex dark:bg-dark2 dark:text-slate-100 mr-2">
-                <Link to="/Redux-App/login">
+                <Link to="/login">
                   <LuLogIn size={25} />
                 </Link>
               </button>

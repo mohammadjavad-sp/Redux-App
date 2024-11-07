@@ -43,7 +43,7 @@ const AboutPage = () => {
           </p>
           <div className="flex gap-5">
             <Button size="md" className="bg-[#5BC91E]">
-              <Link to="/Redux-App/courses">
+              <Link to="/courses">
               {t("showCourses")}
               </Link>
             </Button>

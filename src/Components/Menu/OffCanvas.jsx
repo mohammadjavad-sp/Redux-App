@@ -64,19 +64,19 @@ const OffCanvas = () => {
         </div>
         <ul className="p-4 flex flex-col flex-1 dark:text-slate-100 divide-y-2">
           <li className="h-12 flex items-center">
-            <NavLink className="block w-full" to="/Redux-App/home"> {t("menu.home")}</NavLink>
+            <NavLink className="block w-full" to="/home"> {t("menu.home")}</NavLink>
           </li>
           <li className="h-12 flex items-center">
-            <NavLink className="block w-full" to="/Redux-App/courses"> {t("menu.courses")}</NavLink>
+            <NavLink className="block w-full" to="/courses"> {t("menu.courses")}</NavLink>
           </li>
           <li className="h-12 flex items-center">
-            <NavLink className="block w-full" to="/Redux-App/articles">{t("menu.articles")}</NavLink>
+            <NavLink className="block w-full" to="/articles">{t("menu.articles")}</NavLink>
           </li>
           <li className="h-12 flex items-center">
-            <NavLink className="block w-full" to="/Redux-App/about"> {t("menu.about")}</NavLink>
+            <NavLink className="block w-full" to="/about"> {t("menu.about")}</NavLink>
           </li>
           <li className="h-12 flex items-center">
-            <NavLink className="block w-full" to="/Redux-App/contact"> {t("menu.contact")} </NavLink>
+            <NavLink className="block w-full" to="/contact"> {t("menu.contact")} </NavLink>
           </li>
         </ul>
       </aside>

@@ -54,7 +54,7 @@ const LoginPage = () => {
     if (isValid && recaptchaVerified) {
       const user = { ...data, token: data.username };
       dispatch(loginSuccess(user));
-      navigate("/Redux-App/panel");
+      navigate("/panel");
     }
   };
 
@@ -69,7 +69,7 @@ const LoginPage = () => {
       callback: (response) => {
         const { name, picture } = jwtDecode(response.credential);
         dispatch(loginSuccess({ picture, token: name }));
-        navigate("/Redux-App/panel");
+        navigate("/panel");
       },
     });
 

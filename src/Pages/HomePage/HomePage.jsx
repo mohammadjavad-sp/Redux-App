@@ -100,7 +100,7 @@ const HomePage = () => {
                 size="xl"
                 gradientDuoTone="purpleToPink"
               >
-                <Link to="/Redux-App/courses">{t("showCourses")}</Link>
+                <Link to="/courses">{t("showCourses")}</Link>
               </Button>
               <div className="flex flex-col gap-3 items-center">
                 <div className="flex">

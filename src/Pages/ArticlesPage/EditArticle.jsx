@@ -70,7 +70,7 @@ const EditArticle = () => {
         }
       );
 
-      navigate("/Redux-App/articles");
+      navigate("/articles");
     } catch (error) {
       Swal.fire("خطا", "خطایی در ارسال مقاله رخ داد", "error");
     }

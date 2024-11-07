@@ -65,7 +65,7 @@ const ArticlePage = () => {
           timer: 2000,
           timerProgressBar: true,
         });
-        navigate("/Redux-App/articles");
+        navigate("/articles");
         return res.data;
       } catch (error) {
         throw new Error("Error fetching data:");
@@ -114,7 +114,7 @@ const ArticlePage = () => {
                     className="translate-y-[-2px]"
                   />{" "}
                   <p className="translate-y-[2px] mr-1">
-                    <Link to={`/Redux-App/articles/editArticle/${id}`}>
+                    <Link to={`/articles/editArticle/${id}`}>
                       ویرایش مقاله
                     </Link>
                   </p>

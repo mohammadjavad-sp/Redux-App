@@ -35,7 +35,7 @@ const CoursesSwiper = () => {
               {t("textTopCourses")}
             </p>
             <Button gradientDuoTone="greenToBlue">
-              <Link to="/Redux-App/courses">{t("showCourses")}</Link>
+              <Link to="/courses">{t("showCourses")}</Link>
             </Button>
           </div>
 

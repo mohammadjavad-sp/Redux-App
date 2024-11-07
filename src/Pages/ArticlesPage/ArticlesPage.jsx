@@ -86,7 +86,7 @@ const ArticlesPage = () => {
               className="translate-y-[2px] mx-1"
             />
             <span className="translate-y-[1px]">
-              <Link to="/Redux-App/articles/addArticle">{t("create")}</Link>
+              <Link to="/articles/addArticle">{t("create")}</Link>
             </span>
           </Button>
 

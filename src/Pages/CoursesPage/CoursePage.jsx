@@ -70,12 +70,12 @@ const CoursePage = () => {
         <div className="breadCrumb bg-white dark:bg-dark2 container h-12 rounded-xl items-center flex px-5 overflow-x-auto text-nowrap">
           <Breadcrumb aria-label="Default breadcrumb example">
             <Breadcrumb.Item>
-              <Link to="/Redux-App/">
+              <Link to="/">
                 <IoMdHome size={20} style={{ transform: "rotate(0deg)" }} />
               </Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
-              <Link to="/Redux-App/courses">دوره ها</Link>
+              <Link to="/courses">دوره ها</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
               {course.category == "frontend" ? "فرانت اند" : "پایتون"}
