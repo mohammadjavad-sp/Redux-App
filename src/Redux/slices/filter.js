@@ -1,26 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { t } from "i18next";
 
 export const filterSlice = createSlice({
   name: "filter",
-  initialState: { filterModal: false, sortModal: false, sortName: "" },
+  initialState: {
+    filterModal: false,
+    sortModal: false,
+    sortName: t("sorts.allCourses"),
+  },
   reducers: {
-    openFilterModal: (state, action) => {
+    openFilterModal: (state) => {
       state.filterModal = !state.filterModal;
     },
-    openSortModal: (state, action) => {
+    openSortModal: (state) => {
       state.sortModal = !state.sortModal;
     },
+    closeSortModal: (state) => {
+      state.sortModal = false;
+    },
     setSortName: (state, action) => {
-      if(action.payload == "ارزان ترین"){
-        state.sortName = "ارزان ترین"
-      }else if(action.payload == "گران ترین"){
-        state.sortName = "گران ترین"
-      }else{
-        state.sortName = "همه دوره ها"
-      }
+      state.sortName = action.payload;
     },
   },
 });
 
-export const { openFilterModal, openSortModal, setSortName } =
+export const { openFilterModal, openSortModal, setSortName, closeSortModal } =
   filterSlice.actions;

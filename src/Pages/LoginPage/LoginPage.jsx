@@ -1,5 +1,5 @@
 import ReCAPTCHA from "react-google-recaptcha";
-import logo from "../../assets/images/logoipsum-332.svg";
+import logo from "../../assets/images/logo.png";
 import { FaEye, FaEyeSlash, FaUser } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -88,7 +88,7 @@ const LoginPage = () => {
       >
         <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-lg text-center">
-            <img src={logo} className="block mx-auto mb-5" alt="" />
+            <img src={logo} className="block mx-auto mb-5 w-16" alt="" />
             <h1 className="text-2xl font-bold sm:text-xl dark:text-slate-100">
               {t("login.titr")}
             </h1>

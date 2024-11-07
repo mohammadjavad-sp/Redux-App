@@ -1,16 +1,26 @@
 import { useEffect, useState } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { openSortModal, setSortName } from "../../Redux/slices/filter";
+import {
+  closeSortModal,
+  openSortModal,
+  setSortName,
+} from "../../Redux/slices/filter";
 import { useDispatch, useSelector } from "react-redux";
 import { SiTicktick } from "react-icons/si";
 import "./SortMobile.css";
 import { fetchCourses, fetchCoursesBySort } from "../../Redux/slices/courses";
+import { useTranslation } from "react-i18next";
 
 const SortMobile = () => {
-  const [selected, setSelected] = useState("همه دوره ها");
+  const { t } = useTranslation();
+  const [selected, setSelected] = useState(t("sorts.allCourses"));
   const { sortModal } = useSelector((store) => store.filter);
   const dispatch = useDispatch();
-  const options = ["همه دوره ها", "ارزان ترین", "گران ترین"];
+  const options = [
+    t("sorts.allCourses"),
+    t("sorts.cheapest"),
+    t("sorts.expensivest"),
+  ];
 
   useEffect(() => {
     if (sortModal) {
@@ -18,20 +28,21 @@ const SortMobile = () => {
     }
   });
 
-  useEffect(()=>{
-    if(selected == "ارزان ترین"){
-      dispatch(fetchCoursesBySort("ارزان ترین"))
-      dispatch(setSortName("ارزان ترین"))
-      dispatch(openSortModal())
-    }else if(selected == "گران ترین"){
-      dispatch(fetchCoursesBySort("گران ترین"))
-      dispatch(setSortName("گران ترین"))
-      dispatch(openSortModal())
-    }else{
-      dispatch(fetchCourses())
-      dispatch(setSortName("همه دوره ها"))
+  useEffect(() => {
+    if (selected == t("sorts.cheapest")) {
+      dispatch(fetchCoursesBySort(t("sorts.cheapest")));
+      dispatch(setSortName(t("sorts.cheapest")));
+      dispatch(closeSortModal());
+    } else if (selected == t("sorts.expensivest")) {
+      dispatch(fetchCoursesBySort(t("sorts.expensivest")));
+      dispatch(setSortName(t("sorts.expensivest")));
+      dispatch(closeSortModal());
+    } else {
+      dispatch(fetchCourses());
+      dispatch(setSortName(t("sorts.allCourses")));
+      dispatch(closeSortModal());
     }
-  },[selected])
+  }, [selected]);
 
   return (
     <>

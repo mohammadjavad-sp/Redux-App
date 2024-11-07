@@ -202,20 +202,31 @@ const en = {
 
   // more articlesPage
 
-  title:"article title",
-  title2:"write the article title",
-  desc:"short description",
-  desc2:"write the short description for article",
-  writter:"article writter",
-  writter2:"write the article writter",
-  subject:"article subject",
-  subject2:"write the article subject",
-  img:"article image",
-  img2:"write the article image link",
-  readingTime:"reading time",
-  readingTime2:"write the reading time",
-  articleBtn:"create article",
-  articleBtn2:"edit article",
+  title: "article title",
+  title2: "write the article title",
+  desc: "short description",
+  desc2: "write the short description for article",
+  writter: "article writter",
+  writter2: "write the article writter",
+  subject: "article subject",
+  subject2: "write the article subject",
+  img: "article image",
+  img2: "write the article image link",
+  readingTime: "reading time",
+  readingTime2: "write the reading time",
+  articleBtn: "create article",
+  articleBtn2: "edit article",
+
+  //filterMobile
+
+  filterM: {
+    filter: "filter",
+    filters:"filters",
+    remove:"remove filters",
+    presale:"pre-sale",
+    front:"frontend courses",
+    python:"python courses",
+  },
 };
 
 export default en;

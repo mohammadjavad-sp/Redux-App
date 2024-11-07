@@ -181,11 +181,11 @@ const Menu = () => {
                 <Dropdown.Item className="p-0 !bg-transparent">
                   <Link
                     to="/panel"
-                    className=" w-full py-2 px-4 text-start hover:bg-gray-100 flex items-center gap-1"
+                    className=" w-full py-2 px-4 text-start hover:bg-gray-100 flex items-center gap-1 dark:hover:bg-dark2"
                   >
                     <MdOutlineDashboard
                       size={20}
-                      className="translate-y-[-1px]"
+                      className="translate-y-[-1px] "
                     />
                     {t("menu.dashboard")}
                   </Link>
@@ -211,7 +211,7 @@ const Menu = () => {
             )}
 
             {!isAuthenticated && (
-              <button className="bg-slate-100 size-10 lg:hidden items-center justify-center rounded-md flex dark:bg-dark2 dark:text-slate-100 mr-2">
+              <button className="bg-slate-100 size-10 lg:hidden items-center justify-center rounded-md flex dark:bg-dark2 dark:text-slate-100 mx-2">
                 <Link to="/login">
                   <LuLogIn size={25} />
                 </Link>

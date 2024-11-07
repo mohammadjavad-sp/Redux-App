@@ -34,7 +34,7 @@ const CartPage = () => {
           {t("emptyCart")}
         </Alert>
       ) : (
-        <section className=" mx-auto py-14 px-12 h-auto bg-[#F3F4F6] dark:bg-dark3">
+        <section className=" mx-auto py-14 px-12 h-screen bg-[#F3F4F6] dark:bg-dark3">
           <div className="container flex flex-col lg:flex-row gap-7">
             <div className="lg:w-8/12 w-full bg-white dark:bg-dark1 rounded-2xl">
               <div className="w-full bg-[#22C55E] rounded-t-2xl px-5 py-4 flex gap-3 items-center text-white">

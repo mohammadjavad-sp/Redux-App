@@ -81,7 +81,7 @@ const HomePage = () => {
                 >
                   {t("year")}
                 </span>
-                <img src={emoji} className="size-4 mr-1" />
+                <img src={emoji} className="size-4 mx-1" />
               </p>
             </div>
             <h1 className="lg:text-[45px] text-[30px] font-pinarEB text-rang1 dark:text-slate-200 text-center lg:text-start">

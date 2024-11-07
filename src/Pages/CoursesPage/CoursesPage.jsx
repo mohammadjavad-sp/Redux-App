@@ -17,16 +17,20 @@ import Footer from "../../Components/Footer/Footer";
 import CardCourse2 from "../../Components/CardCourse2/CardCourse2";
 import { CiFilter } from "react-icons/ci";
 import FilterMobile from "../../Components/Filters/FilterMobile";
-import { openFilterModal, openSortModal } from "../../Redux/slices/filter";
+import {
+  openFilterModal,
+  openSortModal,
+  setSortName,
+} from "../../Redux/slices/filter";
 import SortMobile from "../../Components/Filters/SortMobile";
 import { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import Lottie from "lottie-react";
-import animation from "../../assets/images/animation/loading.json"; 
+import animation from "../../assets/images/animation/loading.json";
 
 const CoursesPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const categorysContainer = useRef();
   const dispatch = useDispatch();
   const { allCourses, loading } = useSelector((store) => store.courses);
@@ -101,6 +105,17 @@ const CoursesPage = () => {
     dispatch(fetchCoursesByCategory(e.target.value));
   };
 
+  useEffect(() => {
+    const currentSortName = sortName;
+    if (currentSortName === t("sorts.cheapest")) {
+      dispatch(setSortName(t("sorts.cheapest")));
+    } else if (currentSortName === t("sorts.expensivest")) {
+      dispatch(setSortName(t("sorts.expensivest")));
+    } else {
+      dispatch(setSortName(t("sorts.allCourses")));
+    }
+  }, [i18n.language, dispatch, t, sortName]);
+
   return (
     <>
       <Toaster
@@ -136,18 +151,22 @@ const CoursesPage = () => {
                 type="text"
                 onChange={handleSearch}
                 placeholder={t("filters.search")}
-                className="border-0 rounded-xl focus:ring-0 dark:bg-dark1 dark:text-white"
+                className="border-0 rounded-xl focus:ring-0 dark:bg-dark1 dark:text-white flex-1"
               />
               <HiMagnifyingGlass size={30} color="#64748B" />
             </div>
 
-            <div className="filterMobile flex md:hidden mt-5 gap-5">
+            <div
+              className={`filterMobile flex md:hidden mt-5 gap-5 ${
+                i18next.language == "en" && "ltr"
+              }`}
+            >
               <div
                 className="flex items-center gap-1 w-[50%] justify-center bg-white py-3 dark:bg-dark1 dark:text-slate-100 rounded-full"
                 onClick={() => dispatch(openFilterModal())}
               >
                 <CiFilter size={25} />
-                <p>فیلتر</p>
+                <p>{t("filterM.filter")}</p>
               </div>
               <div
                 className="flex items-center gap-1 w-[50%] justify-center bg-white py-3 rounded-full dark:bg-dark1 dark:text-slate-100"
@@ -173,7 +192,7 @@ const CoursesPage = () => {
               </div>
             </div>
             <div
-              className=" bg-white dark:bg-dark1 dark:text-white hidden md:block rounded-xl justify-between p-4 mt-6 "
+              className=" bg-white dark:bg-dark1 dark:text-white !hidden md:!block rounded-xl justify-between p-4 mt-6 "
               ref={categorysContainer}
             >
               {categorys.map((category) => (
@@ -186,7 +205,6 @@ const CoursesPage = () => {
                     name="category"
                     value={category.value}
                     onChange={handleCategoryChange}
-                    defaultChecked={category.defaultChecked}
                     checked={category.checked}
                   />
                 </div>
